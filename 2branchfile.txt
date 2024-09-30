@@ -1,4 +1,0 @@
-Let's make some edits from this branch.
-Let see what happens.
-
-Thanks to sourcetree so that we can make it easy other than commandlines.
