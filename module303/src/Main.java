@@ -11,5 +11,16 @@ public class Main {
             // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
             System.out.println("i = " + i);
         }
+
+        int x, y = 10, z = 3;
+        int tooBig = Integer.MAX_VALUE + 1; // it becomes the smallest integer
+        System.out.println(tooBig);
+
+        double radius;
+        double area;
+        radius = 4;
+        final double PI_NUMBER = 3.14159;
+        area = radius * radius * PI_NUMBER;
+        System.out.println("The area of the circle that has a radius of " + radius + "is : " + area);
     }
 }
