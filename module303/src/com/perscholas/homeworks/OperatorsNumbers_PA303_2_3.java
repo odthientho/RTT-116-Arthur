@@ -1,6 +1,6 @@
-package com.perscholas.java_basics;
+package com.perscholas.homeworks;
 
-public class OperatorsNumbers {
+public class OperatorsNumbers_PA303_2_3 {
     // Task 1:
     // Write a program that declares an integer a variable x, assigns the value 2 to it,
     // and prints out the binary string version of the number ( Integer.toBinaryString(x) ).
@@ -58,6 +58,7 @@ public class OperatorsNumbers {
         System.out.println(z);
         System.out.println(Integer.toBinaryString(z));
     }
+
     // Write a program that declares an integer variable, assigns a number,
     // and uses a postfix increment operator to increase the value.
     // Print the value before and after the increment operator.
@@ -82,6 +83,7 @@ public class OperatorsNumbers {
         a += 1;
         System.out.println(a);
     }
+
     // Write a program that declares two integer variables: x, and y,
     // and then assigns 5 to x and 8 to y.
     // Create another variable sum and assign the value of ++x added to y, and print the result.
@@ -99,7 +101,7 @@ public class OperatorsNumbers {
     }
 
     public static void main(String[] args) {
-        OperatorsNumbers opNum = new OperatorsNumbers();
+        OperatorsNumbers_PA303_2_3 opNum = new OperatorsNumbers_PA303_2_3();
         // to run task 1
         // Perform the preceding exercise with the following values:
         // 2
