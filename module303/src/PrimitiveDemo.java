@@ -28,5 +28,7 @@ public class PrimitiveDemo {
 
         // it has been replaced with
         Integer integerNum2 = Integer.valueOf(123);
+
+        final double PI = 3.14159265358979;
     }
 }
