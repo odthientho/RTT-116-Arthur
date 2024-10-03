@@ -1,4 +1,4 @@
-package org.perscholas;
+package com.perscholas.classworks;
 import java.util.Scanner;
 
 public class ScannerExample {

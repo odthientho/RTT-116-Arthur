@@ -1,4 +1,4 @@
-package org.perscholas;
+package com.perscholas.classworks;
 
 public class PrimitiveDemo {
     public static void main(String[] args) {
