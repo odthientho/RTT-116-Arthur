@@ -1,3 +1,5 @@
+package org.perscholas;
+
 public class PrimitiveDemo {
     public static void main(String[] args) {
         byte byteNum;   // This can hold whole number between -128 and 127.
