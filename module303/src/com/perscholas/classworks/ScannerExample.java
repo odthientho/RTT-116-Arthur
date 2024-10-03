@@ -21,7 +21,7 @@ public class ScannerExample {
         System.out.println("The area of " + r + " is " + area);
 
         // This is a good practice for good!
-        // IMPROTANT
+        // IMPORTANT
         System.out.println("Enter your name: ");
         String newLine = myScanner.nextLine();
         System.out.println("Your name entered is " + newLine);
