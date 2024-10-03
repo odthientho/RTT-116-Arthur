@@ -12,5 +12,13 @@ public class Welcome {
         y = "king";
         System.out.println(x.toUpperCase());
         System.out.println(y.toUpperCase());
+
+        String a = new String("arthur");
+        String b = new String("arthur");
+        if (a == b) {
+            System.out.println("The strings reference the same object.");
+        } else {
+            System.out.println("The strings reference different objects.");
+        }
     }
 }
