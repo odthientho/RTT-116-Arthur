@@ -58,6 +58,35 @@ public class StringExamples {
         // String in Java are immutable
         // They cannot be changed when they are created.
         // They introduce StringBuffer as a peer class of String
+        StringBuffer sb = new StringBuffer();
+        sb.append("abc");
+        sb.append("123");
 
+        sb.insert(4, "xyz");
+        System.out.println(sb);
+
+        // replace function for String Buffer
+        // start at position 0 position 3 but NOT INCLUDE the position 3
+        sb.replace(0, 3, "ABCDEF");
+        System.out.println(sb);
+
+        // we can delete from a string buffer
+        sb.delete(0, 3);
+        System.out.println(sb);
+        // reverse the string
+        sb.reverse();
+        System.out.println(sb);
+
+        // KBA Questions
+        StringBuffer kba = new StringBuffer("ABC");
+        kba.replace(0, 7, "DEFG").insert(0, "12345");
+        System.out.println(kba);
+        // should be 12345DEFG
+        kba.reverse();
+        System.out.println(kba);
+        // should be GFED54321
+        kba.delete(0, 5);
+        System.out.println(kba);
+        // should be 4321
     }
 }
