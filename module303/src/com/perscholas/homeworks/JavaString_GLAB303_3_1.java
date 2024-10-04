@@ -175,6 +175,24 @@ public class JavaString_GLAB303_3_1 {
         );
     }
 
+    public static void equalsMethod() {
+        String s1 = "PerScholas";
+        String s2 = "PerScholas";
+        String s3 = new String("PerScholas");
+        String s4 = "Teksystem";
+        System.out.println(s1.equals(s2));//true
+        System.out.println(s1.equals(s3));//true
+        System.out.println(s1.equals(s4));//false
+    }
+
+    public static void equalsOperatorsMethod() {
+        String s1 = "Perscholas";
+        String s2 = "Perscholas";
+        String s3 = new String("Perscholas");
+        System.out.println(s1 == s2);//true (because both refer to same instance)
+        System.out.println(s1 == s3);//false(because s3 refers to instance created in nonpool)
+    }
+
     public static void main(String[] args) {
         System.out.println("*** length Method ***");
         lengthMethod();
@@ -204,5 +222,9 @@ public class JavaString_GLAB303_3_1 {
         replaceMethod();
         System.out.println("*** replaceAll Method ***");
         replaceAllMethod();
+        System.out.println("*** equals Method ***");
+        equalsMethod();
+        System.out.println("*** equals operators Method ***");
+        equalsOperatorsMethod();
     }
 }

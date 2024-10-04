@@ -7,7 +7,7 @@ public class OperatorsNumbers_PA303_2_3 {
     // Now, use the left shift operator (<<) to shift by 1 and assign the result to x.
     // Before printing the results, write a comment with the predicted decimal value and binary string.
     // Now, print out x in decimal form and in binary notation.
-    private void taskOne(int number) {
+    public static void taskOne(int number) {
         int x = number;
         // the decimal 2 equals to the binary 10
         System.out.println(Integer.toBinaryString(x));
@@ -23,7 +23,7 @@ public class OperatorsNumbers_PA303_2_3 {
     // Now use the right shift operator (>>) to shift by 2 and assign the result to x.
     // Write a comment indicating what you anticipate the decimal and binary values to be.
     // Now print the value of x and the binary string.
-    private void taskTwo(int number) {
+    public static void taskTwo(int number) {
         int x = number;
         System.out.println(Integer.toBinaryString(x));
         x = x >> 2;
@@ -35,7 +35,7 @@ public class OperatorsNumbers_PA303_2_3 {
     // Write a program that declares three int variables: x, y, and z. Assign 7 to x and 17 to y.
     // Write a comment that indicates what you predict will be the result of the bitwise and operation on x and y.
     // Now use the bitwise AND (&) operator to derive the decimal and binary values, and assign the result to z.
-    private void taskThree() {
+    public static void taskThree() {
         int x = 7;
         int y = 17;
         // x = 111
@@ -48,7 +48,7 @@ public class OperatorsNumbers_PA303_2_3 {
 
     // Now, with the preceding values, use the bitwise and operator to calculate the “or” value between x and y.
     // As before, write a comment that indicates what you predict the values to be before printing them out.
-    private void taskFour() {
+    public static void taskFour() {
         int x = 7;
         int y = 17;
         // x = 111
@@ -62,7 +62,7 @@ public class OperatorsNumbers_PA303_2_3 {
     // Write a program that declares an integer variable, assigns a number,
     // and uses a postfix increment operator to increase the value.
     // Print the value before and after the increment operator.
-    private void taskFive() {
+    public static void taskFive() {
         int a = 5;
         System.out.println(a++);
         System.out.println(++a);
@@ -72,7 +72,7 @@ public class OperatorsNumbers_PA303_2_3 {
     // and does this multiple times.
     // Assign a value to an integer variable, print it, increment by 1, print it again,
     // increment by 1, and then print it again.
-    private void taskSix() {
+    public static void taskSix() {
         int a = 3;
         a = a + 1;
         System.out.println(a);
@@ -91,7 +91,7 @@ public class OperatorsNumbers_PA303_2_3 {
     // Now change the increment operator to postfix (x++) and re-run the program.
     // Notice what the value of the sum is. The first configuration incremented x,
     // and then calculated the sum, while the second configuration calculated the sum, and then incremented x.
-    private void taskSeven() {
+    public static void taskSeven() {
         int x = 5;
         int y = 8;
         int sum = ++x + y;
@@ -101,7 +101,6 @@ public class OperatorsNumbers_PA303_2_3 {
     }
 
     public static void main(String[] args) {
-        OperatorsNumbers_PA303_2_3 opNum = new OperatorsNumbers_PA303_2_3();
         // to run task 1
         // Perform the preceding exercise with the following values:
         // 2
@@ -109,10 +108,10 @@ public class OperatorsNumbers_PA303_2_3 {
         // 17
         // 88
         System.out.println("Task 1: ");
-        opNum.taskOne(2);
-        opNum.taskOne(9);
-        opNum.taskOne(17);
-        opNum.taskOne(88);
+        taskOne(2);
+        taskOne(9);
+        taskOne(17);
+        taskOne(88);
 
         // to run task 2
         // Perform the preceding exercise with the following values:
@@ -121,24 +120,24 @@ public class OperatorsNumbers_PA303_2_3 {
         // 1555
         // 32456
         System.out.println("Task 2: ");
-        opNum.taskTwo(150);
-        opNum.taskTwo(225);
-        opNum.taskTwo(1555);
-        opNum.taskTwo(32456);
+        taskTwo(150);
+        taskTwo(225);
+        taskTwo(1555);
+        taskTwo(32456);
 
         System.out.println("Task 3: ");
-        opNum.taskThree();
+        taskThree();
 
         System.out.println("Task 4: ");
-        opNum.taskFour();
+        taskFour();
 
         System.out.println("Task 5: ");
-        opNum.taskFive();
+        taskFive();
 
         System.out.println("Task 6: ");
-        opNum.taskSix();
+        taskSix();
 
         System.out.println("Task 7: ");
-        opNum.taskSeven();
+        taskSeven();
     }
 }
