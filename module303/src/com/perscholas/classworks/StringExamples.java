@@ -1,5 +1,8 @@
 package com.perscholas.classworks;
 
+import java.text.DecimalFormat;
+import java.util.StringJoiner;
+
 public class StringExamples {
     public static void main(String[] args) {
 
@@ -88,5 +91,31 @@ public class StringExamples {
         kba.delete(0, 5);
         System.out.println(kba);
         // should be 4321
+
+        // **** STRINGJOINER ****
+        StringJoiner joinNames = new StringJoiner(" | ", "{ ", " }");
+        joinNames.add("Eric");
+        joinNames.add("Arthur");
+
+        System.out.println(joinNames);
+
+        StringJoiner joinNames2 = new StringJoiner(" : ", "| ", " |");
+        joinNames2.add("Anna");
+        joinNames2.add("Tho");
+
+        System.out.println(joinNames2);
+
+        System.out.println(joinNames.merge(joinNames2));
+        // StringJoiner merge 2 stringjoiners will merge 2 datas together
+        // BUT keep prefix, suffix of the FIRST one
+        // the delimiter of the 1, then 2nd
+
+        // ****** DECIMAL FORMAT *******
+        String pattern = "#,###,###.##";
+        double number = 123456789.123;
+        DecimalFormat numberFormat = new DecimalFormat(pattern);
+        System.out.println(number);
+        System.out.println(numberFormat.format(number));
+
     }
 }
