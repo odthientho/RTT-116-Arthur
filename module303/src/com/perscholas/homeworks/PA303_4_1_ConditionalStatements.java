@@ -2,7 +2,7 @@ package com.perscholas.homeworks;
 
 import java.util.Scanner;
 
-public class ConditionalStatements_PA303_4_1 {
+public class PA303_4_1_ConditionalStatements {
 
     // 1. Write a program that declares 1 integer variable x, and then assigns 7 to it.
     // Write an if statement to print out “Less than 10” if x is less than 10.

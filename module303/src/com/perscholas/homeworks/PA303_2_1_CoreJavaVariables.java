@@ -1,6 +1,6 @@
 package com.perscholas.homeworks;
 
-public class CoreJavaVariables_PA303_2_1 {
+public class PA303_2_1_CoreJavaVariables {
     public static void main(String[] args) {
         // Write a program that declares two integer variables,
         // assigns an integer to each, and adds them together.

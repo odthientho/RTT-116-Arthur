@@ -1,7 +1,7 @@
 package com.perscholas.homeworks;
 import java.util.Arrays;
 
-public class JavaString_GLAB303_3_1 {
+public class GLAB303_3_1_JavaString {
 
     public static void lengthMethod() {
         String str1 = "Java";

@@ -1,6 +1,6 @@
 package com.perscholas.homeworks;
 
-public class OperatorsNumbers_PA303_2_3 {
+public class PA303_2_3_OperatorsNumbers {
     // Task 1:
     // Write a program that declares an integer a variable x, assigns the value 2 to it,
     // and prints out the binary string version of the number ( Integer.toBinaryString(x) ).

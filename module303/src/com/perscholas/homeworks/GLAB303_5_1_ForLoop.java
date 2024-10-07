@@ -2,7 +2,7 @@ package com.perscholas.homeworks;
 
 import java.util.Scanner;
 
-public class ForLoop_GLAB303_5_1 {
+public class GLAB303_5_1_ForLoop {
     public static void Example1() {
         int n = 5;
         // for loop

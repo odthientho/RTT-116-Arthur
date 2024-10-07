@@ -21,15 +21,22 @@ public class LoopExamples {
         }
         // loops for array
         // the array is 0-based, meaning the position if from 0 - 4
-        String[] strings = {"one", "two", "three", "four", "five"};
-        for (int i = 0; i < strings.length; i++) {
-            System.out.println("Strings at position "+ i + " = " + strings[i]);
+        String[] stringArray = {"one", "two", "three", "four", "five"};
+        for (int i = 0; i < stringArray.length; i++) {
+            System.out.println("Strings at position "+ i + " = " + stringArray[i]);
+        }
+        // new style for loops for array
+        for (String value: stringArray) {
+            System.out.println("Strings include: " + value);
         }
         // loops for a string
         // array length does not need () but string length needs ()
         String characters = "abcdefg";
         for (int i = 0; i < characters.length(); i++) {
             System.out.println("Character at position "+ i + " = " + characters.charAt(i));
+        }
+        for (Character character: characters.toCharArray()) {
+            System.out.println("Character = " + character);
         }
         // looping over a List
         List<String> stringList = new ArrayList<>();
@@ -42,9 +49,17 @@ public class LoopExamples {
         for (int i = 0; i < stringList.size(); i++) {
             System.out.println("string at list position "+ i + " = " + stringList.get(i));
         }
+        // *** new style of for loops
+        // easy for typing & reading
+        // but does not contain position of the list
+        for (String s : stringList) {
+            System.out.println(s);
+        }
 
-        // while loops
+        // WHILE LOOPS
 
-        // do while loops
+
+
+        // DO WHILE LOOPS
     }
 }

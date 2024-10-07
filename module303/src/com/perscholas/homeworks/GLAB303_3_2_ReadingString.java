@@ -1,7 +1,7 @@
 package com.perscholas.homeworks;
 import java.util.Scanner;
 
-public class ReadingString_GLAB303_3_2 {
+public class GLAB303_3_2_ReadingString {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
