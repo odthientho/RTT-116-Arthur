@@ -58,8 +58,30 @@ public class LoopExamples {
 
         // WHILE LOOPS
 
+        // this would create a infinite loop
+//        while (true) {
+//            System.out.println("Do you want to continue? (y/n)");
+//        }
 
+        // while loops have some kind of condition
+        // this is very similar to a for loop and really a for loop is better than
+        String words = "abcdefg";
+        int pos = 0;
+        while (pos < words.length()) {
+            System.out.println("word at position "+ pos + " = " + words.charAt(pos));
+            pos = pos + 1;
+        }
+        // great example for use of a while loop
+        boolean success = false;
+        while (!success) {
+            // make an API call attempt
+            // if (apiCall is true)
+            success = true;
+        }
 
         // DO WHILE LOOPS
+        // same as while loops except the condition at the end of the loop
+        do {
+        } while (!success);
     }
 }
