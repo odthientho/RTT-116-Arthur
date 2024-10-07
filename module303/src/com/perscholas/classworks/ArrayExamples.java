@@ -14,6 +14,26 @@ public class ArrayExamples {
         return newArray;
     }
 
+    public static double[] deleteArray(double[] array, int position) {
+        if (position < 0 || position >= array.length) {
+            System.out.println("Invalid position");
+            return array; // return back the incoming array because we do not modify anything
+        }
+        double[] newArray = new double[array.length - 1];
+        for (int i = 0; i < newArray.length; i++) {
+            if (i < position) newArray[i] = array[i];
+            else newArray[i] = array[i+1];
+        }
+        return newArray;
+    }
+
+    public static double[] appendArray(double[] array, double value) {
+        double[] newArray = new double[array.length + 1];
+        for (int i = 0; i < array.length; i++) newArray[i] = array[i];
+        newArray[array.length] = value;
+        return newArray;
+    }
+
     public static void main(String[] args) {
         int[] numbers = new int[10];
 
@@ -32,7 +52,8 @@ public class ArrayExamples {
         String[] strings = {"one", "two", "three", "four", "five"};
 
         double[] num = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        double[] res = insertArray(num, 3, 3.5);
-        System.out.println(Arrays.toString(res));
+        System.out.println(Arrays.toString(insertArray(num, 3, 3.5)));
+        System.out.println(Arrays.toString(deleteArray(num, 7)));
+        System.out.println(Arrays.toString(appendArray(num,2)));
     }
 }
