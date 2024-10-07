@@ -34,6 +34,19 @@ public class ArrayExamples {
         return newArray;
     }
 
+    public static double[] bubbleSort(double[] array) {
+        for (int i = 0; i < array.length-1; i++) {
+            for (int j = i+1; j < array.length; j++) {
+                if (array[i] > array[j]) {
+                    double temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
+                }
+            }
+        }
+        return array;
+    }
+
     public static void main(String[] args) {
         int[] numbers = new int[10];
 
@@ -55,5 +68,8 @@ public class ArrayExamples {
         System.out.println(Arrays.toString(insertArray(num, 3, 3.5)));
         System.out.println(Arrays.toString(deleteArray(num, 7)));
         System.out.println(Arrays.toString(appendArray(num,2)));
+
+        double[] sorting = {2, 4, 1, 6, 3, 9, 5, 7, 8};
+        System.out.println(Arrays.toString(bubbleSort(sorting)));
     }
 }
