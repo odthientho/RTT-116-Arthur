@@ -78,6 +78,17 @@ public class ArrayExamples {
 
         double[] sorting = {2, 4, 1, 6, 3, 9, 5, 7, 8};
         System.out.println(Arrays.toString(bubbleSort(sorting)));
-        System.out.println("Average of the array is: " + average(new double[]{}));
+        System.out.println("Average of the array is: " + average(sorting));
+
+        int[] values = new int[] {3, 5, 2, 7, 10, 6, 1, 14, 8, 13};
+        if (values == null || values.length == 0) return;
+        int min = values[0];
+        int max = values[0];
+        for (int v: values) {
+            if (v < min) min = v;
+            if (v > max) max = v;
+        }
+        System.out.println("Minimum value is: " + min);
+        System.out.println("Maximum value is: " + max);
     }
 }
