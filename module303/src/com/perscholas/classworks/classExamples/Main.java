@@ -21,5 +21,10 @@ public class Main {
         // you can call notAvailable from here
         // because this method is private
         // re1.notAvailable();
+        Student[] stu = new Student[2];
+        stu[0] = new Student(1, "Arthur", "Ong");
+        stu[1] = new Student(2, "James", "Bob", "bobJames@gmail.com", "000-000-0001");
+        stu[0].showInfo();
+        stu[1].showInfo();
     }
 }
