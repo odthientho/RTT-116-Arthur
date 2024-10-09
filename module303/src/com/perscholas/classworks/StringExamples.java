@@ -22,6 +22,9 @@ public class StringExamples {
         System.out.println(s.toUpperCase());
         System.out.println(s.concat("ghijk")); // concat is to + 2 strings together
 
+        // substring from index to index (not length of the substring)
+        System.out.println(s.substring(1, 4));
+
         String r = "abc123abc";
         // have to assign the out result into the r
         System.out.println(r.replace("a", "z"));
@@ -117,5 +120,24 @@ public class StringExamples {
         System.out.println(number);
         System.out.println(numberFormat.format(number));
 
+        // null is its own built in part of the language
+        // no memory has been allocated and this simply a variable has no value
+        String str = null;
+        // --> check if s exists saying s == null;
+        if (str == null) System.out.println("This checks if it exists");
+        else System.out.println("The string exists");
+
+        // NullPointerException
+        // if you use str.toUpperCase() or any methods it will run Exception!
+        // str.trim(); str.length() etc.
+        if (str == null || str.length() == 0) System.out.println("empty string");
+
+        // you never compare 2 strings by the operator ==
+        // should compare by method equal
+        // however, the problem of str null.
+        // this run exceptions
+        if (str != null && str.equals("")) {
+            System.out.println("This check for an empty string");
+        }
     }
 }

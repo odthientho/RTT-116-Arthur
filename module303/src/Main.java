@@ -22,5 +22,6 @@ public class Main {
         final double PI_NUMBER = 3.14159;
         area = radius * radius * PI_NUMBER;
         System.out.println("The area of the circle that has a radius of " + radius + "is : " + area);
+
     }
 }
