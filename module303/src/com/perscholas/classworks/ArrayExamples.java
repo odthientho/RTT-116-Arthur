@@ -47,6 +47,13 @@ public class ArrayExamples {
         return array;
     }
 
+    public static double average(double[] nums) {
+        if (nums.length == 0) return 0;
+        double sum = 0;
+        for (double num: nums) sum += num;
+        return sum / nums.length;
+    }
+
     public static void main(String[] args) {
         int[] numbers = new int[10];
 
@@ -71,5 +78,6 @@ public class ArrayExamples {
 
         double[] sorting = {2, 4, 1, 6, 3, 9, 5, 7, 8};
         System.out.println(Arrays.toString(bubbleSort(sorting)));
+        System.out.println("Average of the array is: " + average(new double[]{}));
     }
 }
