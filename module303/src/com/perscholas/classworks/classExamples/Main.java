@@ -26,5 +26,26 @@ public class Main {
         stu[1] = new Student(2, "James", "Bob", "bobJames@gmail.com", "000-000-0001");
         stu[0].showInfo();
         stu[1].showInfo();
+
+
+        Circle circle1 = new Circle();
+        circle1.setRadius(2.0);      // this method is implemented in the Circle class
+        circle1.setName("Circle");   // this method is implemented in the Shape class
+
+        Circle circle2 = new Circle();
+        circle2.setRadius(3.0);
+        circle2.setName("Circle");
+
+        System.out.println(circle1.getPI());
+        System.out.println(circle2.getPI());
+        circle2.setPI(23);
+        System.out.println(circle1.getPI());
+        System.out.println(circle2.getPI());
+
+        Triangle triangle = new Triangle();
+        triangle.setName("Triangle");
+        triangle.setSideA(2.0);
+        triangle.setSideB(3.0);
+        triangle.setSideC(4.0);
     }
 }

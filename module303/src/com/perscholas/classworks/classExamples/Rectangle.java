@@ -1,6 +1,6 @@
 package com.perscholas.classworks.classExamples;
 
-public class Rectangle {
+public class Rectangle extends Shape {
     // these are considered class members or clas variables
     // we are not directly exposing these to outside world.
     // Thus they are private class member

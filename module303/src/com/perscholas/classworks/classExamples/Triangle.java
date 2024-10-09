@@ -1,6 +1,6 @@
 package com.perscholas.classworks.classExamples;
 
-public class Triangle {
+public class Triangle extends Shape {
     private double sideA;
     private double sideB;
     private double sideC;
@@ -44,7 +44,4 @@ public class Triangle {
         this.sideC = sideC;
     }
 
-    public static void main(String[] args) {
-
-    }
 }
