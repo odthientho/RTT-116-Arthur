@@ -34,7 +34,7 @@ public class CoffeeShop {
         System.out.println("2. Purchase product");
         System.out.println("3. Check Out");
         System.out.println("4. Exit");
-        System.out.println("Enter your choice: ");
+        System.out.print("Enter your choice: ");
         int selection = myScanner.nextInt();
         myScanner.nextLine();
         return selection;
@@ -43,21 +43,17 @@ public class CoffeeShop {
     private void addProductToCart() {
         // print the menu for customer to choose
         printProductMenu();
-        char choice = 'Y';
-        while (choice == 'Y') {
-            // ask which one they want to purchase
-            System.out.print("Enter product number: ");
-            int selection = myScanner.nextInt();
-            myScanner.nextLine();
 
-            // add the selected product to the cart
+        // ask which one they want to purchase
+        System.out.print("Enter product number: ");
+        int selection = myScanner.nextInt();
+        myScanner.nextLine();
+
+        // add the selected product to the cart
+        if (selection >= 0 && selection < products.size()) {
             cart.add(products.get(selection - 1));
-
-            // asking if they want to buy more
             System.out.println("Added product# " + selection +" to the cart");
-            System.out.print("Do you want to add another product? [Y/N] ");
-            choice = myScanner.nextLine().toUpperCase().charAt(0);
-        }
+        } else System.out.println("Invalid product number");
     }
     private void checkOut() {
         double totalPrice = 0;
@@ -67,12 +63,14 @@ public class CoffeeShop {
             System.out.println("Product #" + (i+1) + " \t| Name: " + product.getName() + " \t| Price: " + product.getPrice());
         }
         DecimalFormat df = new DecimalFormat("$#.##");  // Format to 2 decimal places
-        System.out.println("Total price: " + df.format(totalPrice));
+        System.out.println("Subtotal: \t\t\t" + df.format(totalPrice));
+        System.out.println("Sale tax: \t\t\t" + df.format(totalPrice * 0.05));
+        System.out.println("Total Price: \t\t" + df.format(totalPrice * 1.05));
 
-        System.out.print("\nDo you want to continue? [Y/N] ");
+        System.out.print("\nAre you ready to pay? [Y/N] ");
         char choice = myScanner.nextLine().toUpperCase().charAt(0);
-        if (choice != 'Y') {
-            System.out.println("Good Bye!");
+        if (choice == 'Y') {
+            System.out.println("Thank you for your payment!\nGood Bye!");
             System.exit(0);
         }
     }
