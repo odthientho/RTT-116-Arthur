@@ -8,12 +8,11 @@ public class myRunner {
 
         // Example of Object type casting
         // declaration of object variable obj of the Shape class
-
-        // Shape sObj ; // object creation of the Shape class
+        // Shape sObj ;
+        // object creation of the Shape class
         Shape sObj = new Shape();
         sObj.displayshapeName();
         System.out.println(sObj instanceof Shape); // true
-
 
         // object creation of the Circle class
         System.out.println("+++++++++");

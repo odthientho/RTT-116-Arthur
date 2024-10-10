@@ -20,13 +20,14 @@ public class Cylinder extends Circle {
     public double getSurfaceArea() {
         return 2.0 * Math.PI*super.radius*super.height;
     }
+
     @Override
     public void displayshapeName() {
         System.out.println("Drawing a Cylinder for radius " + super.radius);
     }
-    public String toString()
-    {
-        return "radius is: " + super.radius +"height is : " + super.height;
 
+    @Override
+    public String toString() {
+        return "radius is: " + super.radius +"height is : " + super.height;
     }
 }

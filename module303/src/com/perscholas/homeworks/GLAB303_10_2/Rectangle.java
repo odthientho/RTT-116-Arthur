@@ -9,8 +9,7 @@ public class Rectangle extends Shape {
     public Rectangle() {
     }
 
-    public Rectangle(String color, double area, double base, double width, double height)
-    {
+    public Rectangle(String color, double area, double base, double width, double height) {
         super(color, area, base, width, height);
     }
 
