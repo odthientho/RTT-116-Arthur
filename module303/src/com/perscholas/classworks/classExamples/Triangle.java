@@ -1,47 +1,43 @@
 package com.perscholas.classworks.classExamples;
 
 public class Triangle extends Shape {
-    private double sideA;
-    private double sideB;
-    private double sideC;
-
     private double base;
     private double height;
 
     public Triangle() {
-        sideA = 0;
-        sideB = 0;
-        sideC = 0;
+        base = 0;
+        height = 0;
     }
 
-    public Triangle(double sideA, double sideB, double sideC) {
-        this.sideA = sideA;
-        this.sideB = sideB;
-        this.sideC = sideC;
+    public Triangle(double base, double height) {
+        this.base = base;
+        this.height = height;
     }
 
-    public double getSideA() {
-        return sideA;
+    public double getBase() {
+        return base;
     }
 
-    public void setSideA(double sideA) {
-        this.sideA = sideA;
+    public void setBase(double base) {
+        this.base = base;
     }
 
-    public double getSideB() {
-        return sideB;
+    public double getHeight() {
+        return height;
     }
 
-    public void setSideB(double sideB) {
-        this.sideB = sideB;
+    public void setHeight(double height) {
+        this.height = height;
     }
 
-    public double getSideC() {
-        return sideC;
+
+    @Override
+    public double calculateArea() {
+        return 0.5 * base * height;
     }
 
-    public void setSideC(double sideC) {
-        this.sideC = sideC;
+    @Override
+    public double calculatePerimeter() {
+        return 0;
     }
-
 }

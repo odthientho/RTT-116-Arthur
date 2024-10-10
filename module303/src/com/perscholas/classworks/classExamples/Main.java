@@ -1,5 +1,7 @@
 package com.perscholas.classworks.classExamples;
 
+import com.perscholas.classworks.Student;
+
 public class Main {
     public static void main(String[] args) {
         Rectangle re1 = new Rectangle();
@@ -44,8 +46,7 @@ public class Main {
 
         Triangle triangle = new Triangle();
         triangle.setName("Triangle");
-        triangle.setSideA(2.0);
-        triangle.setSideB(3.0);
-        triangle.setSideC(4.0);
+        triangle.setBase(2.0);
+        triangle.setHeight(3.0);
     }
 }

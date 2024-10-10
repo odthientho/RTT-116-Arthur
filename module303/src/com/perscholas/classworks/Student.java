@@ -1,4 +1,4 @@
-package com.perscholas.classworks.classExamples;
+package com.perscholas.classworks;
 
 public class Student {
     private int studentId;

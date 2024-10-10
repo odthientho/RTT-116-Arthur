@@ -15,4 +15,14 @@ public class Circle extends Shape {
     public double getPI() {
         return PI;
     }
+
+    @Override
+    public double calculateArea() {
+        return PI * radius * radius;
+    }
+
+    @Override
+    public double calculatePerimeter() {
+        return 2 * PI * radius;
+    }
 }

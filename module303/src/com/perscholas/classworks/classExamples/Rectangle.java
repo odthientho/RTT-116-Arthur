@@ -4,8 +4,8 @@ public class Rectangle extends Shape {
     // these are considered class members or clas variables
     // we are not directly exposing these to outside world.
     // Thus they are private class member
-    private int height;
-    private int width;
+    private double height;
+    private double width;
 
     // this is the constructor to initialize when we create an object.
     public Rectangle() {
@@ -13,26 +13,26 @@ public class Rectangle extends Shape {
         this.width = 0;
     }
 
-    public Rectangle(int height, int width) {
+    public Rectangle(double height, double width) {
         // use this. -> reference to the parameters of the class
         this.height = height;
         this.width = width;
     }
 
     // this is what we call setters and getters
-    public void setHeight(int height) {
+    public void setHeight(double height) {
         this.height = height;
     }
 
-    public void setWidth(int width) {
+    public void setWidth(double width) {
         this.width = width;
     }
 
-    public int getHeight() {
+    public double getHeight() {
         return height;
     }
 
-    public int getWidth() {
+    public double getWidth() {
         return width;
     }
 
@@ -41,11 +41,13 @@ public class Rectangle extends Shape {
         return "Square [height=" + height + ", width=" + width + "]";
     }
 
-    public int calculateArea() {
+    @Override
+    public double calculateArea() {
         return width * height;
     }
 
-    public int calculatePerimeter() {
+    @Override
+    public double calculatePerimeter() {
         notAvailable();
         return height * 2 + width * 2;
     }
