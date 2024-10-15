@@ -1,6 +1,6 @@
-package com.perscholas.homeworks.GLAB303_10_2;
+package com.perscholas.homeworks.GLAB303_10_2_AND_303_10_3;
 
-public class Shape {
+public abstract class Shape {
     private String color;
     protected double area = 1.0;
     protected double base = 1.0;
@@ -49,12 +49,12 @@ public class Shape {
     }
 
     /** All shapes must provide a method called getArea() */
-    public double getArea() {
-        // We have a problem here!
-        // We need to return some value to compile the program.
-        System.out.println("Shape unknown! Cannot compute area!");
-        return 0;
-    }
+    public abstract double getArea(); //{
+//        // We have a problem here!
+//        // We need to return some value to compile the program.
+//        System.out.println("Shape unknown! Cannot compute area!");
+//        return 0;
+    //}
     public void displayshapeName() {
         System.out.println("I am a Shape.");
     }

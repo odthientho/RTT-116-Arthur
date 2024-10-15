@@ -1,4 +1,4 @@
-package com.perscholas.homeworks.GLAB303_10_2;
+package com.perscholas.homeworks.GLAB303_10_2_AND_303_10_3;
 
 
 public class myRunner {
@@ -10,9 +10,9 @@ public class myRunner {
         // declaration of object variable obj of the Shape class
         // Shape sObj ;
         // object creation of the Shape class
-        Shape sObj = new Shape();
-        sObj.displayshapeName();
-        System.out.println(sObj instanceof Shape); // true
+//        Shape sObj = new Shape();
+//        sObj.displayshapeName();
+//        System.out.println(sObj instanceof Shape); // true
 
         // object creation of the Circle class
         System.out.println("+++++++++");
@@ -24,7 +24,7 @@ public class myRunner {
         System.out.println(shapeCircleObj);  // Run circle's toString()
         // Use instanceof operator for Validation
         System.out.println(shapeCircleObj instanceof Circle); // true
-        System.out.println(sObj instanceof Circle); // false because Shape is not a Circle
+//        System.out.println(sObj instanceof Circle); // false because Shape is not a Circle
 
         System.out.println("--------------------");
         Shape shapeRectangleObj = new Rectangle("Red"); //UpCasting
@@ -35,7 +35,7 @@ public class myRunner {
         System.out.println(shapeRectangleObj);  // Run Rectangle's toString()
         // Use instanceof operator for Validation
         System.out.println(shapeRectangleObj instanceof Rectangle); // true
-        System.out.println(sObj instanceof Rectangle); // false because Shape is not a Rectangle
+//        System.out.println(sObj instanceof Rectangle); // false because Shape is not a Rectangle
 
         System.out.println("--------------------");
         Shape shapeTriangleObj = new Triangle("Blue"); //UpCasting
@@ -47,7 +47,7 @@ public class myRunner {
 
         // Use instanceof operator for Validation
         System.out.println(shapeTriangleObj instanceof Triangle); // true
-        System.out.println(sObj instanceof Triangle); // false because Shape is not a Triangle
+//        System.out.println(sObj instanceof Triangle); // false because Shape is not a Triangle
         System.out.println("--------------------");
 
         Cylinder cylinderShape = new Cylinder(3); //UpCasting
@@ -55,5 +55,34 @@ public class myRunner {
         cylinderShape.setHeight(3);
         System.out.println("Area of Cylinder is " + cylinderShape.getVolumne());
         System.out.println(cylinderShape);  // Run cylinderShape's toString()
+
+
+        // object creation of the Circle class
+        System.out.println("+++++++++++++++++");
+        // it’s fine because a Circle is a Shape by inheritance
+        Shape shapeCircleObj1 = new Circle(100);  // UpCasting
+        shapeCircleObj1.displayshapeName();
+        System.out.println("Area of Circle " + shapeCircleObj1.getArea());
+        System.out.println(shapeCircleObj1);  // Run circle's toString()
+        // Use instanceof operator for Validation
+        System.out.println(shapeCircleObj1 instanceof Circle); // true
+
+        System.out.println("+++++++++++++++++");
+        Shape shapeRectangleObj1 = new Rectangle("Red"); //UpCasting
+        shapeRectangleObj1.displayshapeName();
+        shapeRectangleObj1.setHeight(2);
+        shapeRectangleObj1.setWidth(4);
+        System.out.println("Area of Rectangle is " + shapeRectangleObj1.getArea());
+        System.out.println(shapeRectangleObj1);  // Run Rectangle's toString()
+        // Use instanceof operator for Validation
+        System.out.println(shapeRectangleObj1 instanceof Rectangle); // true
+
+        System.out.println("--------------------");
+        Shape shapeTriangleObj1 = new Triangle("Blue"); //UpCasting
+        shapeTriangleObj1.displayshapeName();
+        shapeTriangleObj1.setHeight(10);
+        shapeTriangleObj1.setBase(15);
+        System.out.println("Area of Triangle is " + shapeTriangleObj1.getArea());
+        System.out.println(shapeTriangleObj1);  // Run Triangle's toString()
     }
 }

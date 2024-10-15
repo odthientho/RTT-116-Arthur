@@ -1,4 +1,4 @@
-package com.perscholas.homeworks.GLAB303_10_2;
+package com.perscholas.homeworks.GLAB303_10_2_AND_303_10_3;
 
 public class Cylinder extends Circle {
     private final double PI = Math.PI  ;

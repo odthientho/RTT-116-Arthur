@@ -1,4 +1,4 @@
-package com.perscholas.homeworks.GLAB303_10_2;
+package com.perscholas.homeworks.GLAB303_10_2_AND_303_10_3;
 
 public class Circle extends Shape {
     protected double radius;
@@ -17,10 +17,12 @@ public class Circle extends Shape {
         super.area = PI * Math.pow(this.radius, 2); // initializing value in parent class variable
         return super.area; //reference to  parent class variable
     }
+
     @Override
     public void displayshapeName() {
         System.out.println("Drawing a Circle of radius " + this.radius);
     }
+
     /** Returns a self-descriptive string */
     @Override
     public String toString() {
