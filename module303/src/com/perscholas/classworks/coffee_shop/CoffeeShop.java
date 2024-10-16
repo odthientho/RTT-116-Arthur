@@ -11,7 +11,7 @@ public class CoffeeShop {
     // this is a class level variable that will contain our list of products for sale
     private List<Product> products = new ArrayList<>();
     // this will hold the product that customers purchase
-    private List<Product> cart = new ArrayList<>();
+    private List<CartItem> cart = new ArrayList<>();
 
     private void initProducts() {
         products.add(new Product("Small Coffee", 4.57, 0));
@@ -49,20 +49,38 @@ public class CoffeeShop {
         int selection = myScanner.nextInt();
         myScanner.nextLine();
 
-        // add the selected product to the cart
-        if (selection >= 0 && selection < products.size()) {
-            cart.add(products.get(selection - 1));
-            System.out.println("Added product# " + selection +" to the cart");
+        // make sure product selected in all products that have
+        if (selection > 0 && selection <= products.size()) {
+            System.out.print("How many? ");
+            int quantity = myScanner.nextInt();
+            myScanner.nextLine();
+
+            // check if that selection product in the cart already or not
+            for (CartItem item : cart) {
+                if (item.getName().equals(products.get(selection - 1).getName())) {
+                    item.setQuantity(item.getQuantity() + quantity);
+                    System.out.println("Added "+ quantity + " more of the product# " + selection +" to the cart");
+                    return;
+                }
+            }
+            cart.add(new CartItem(products.get(selection - 1), quantity));
+            System.out.println("Added "+ quantity + " of the product# " + selection +" to the cart");
         } else System.out.println("Invalid product number");
     }
     private void checkOut() {
         double totalPrice = 0;
+        DecimalFormat df = new DecimalFormat("$#.##");
         for (int i = 0; i < cart.size(); i++) {
-            Product product = cart.get(i);
-            totalPrice += product.getPrice();
-            System.out.println("Product #" + (i+1) + " \t| Name: " + product.getName() + " \t| Price: " + product.getPrice());
-        }
-        DecimalFormat df = new DecimalFormat("$#.##");  // Format to 2 decimal places
+            CartItem cartItem = cart.get(i);
+            totalPrice += cartItem.getTotalPrice();
+            System.out.println(
+                    "Item #" + (i+1) +
+                    " \t| Name: " + cartItem.getName() +
+                    " \t| Quantity: " + cartItem.getQuantity() +
+                    " \t| Unit Price: " + df.format(cartItem.getPrice()) +
+                    " \t| Price: " + df.format(cartItem.getTotalPrice())
+            );
+        } // Format to 2 decimal places
         System.out.println("Subtotal: \t\t\t" + df.format(totalPrice));
         System.out.println("Sale tax: \t\t\t" + df.format(totalPrice * 0.05));
         System.out.println("Total Price: \t\t" + df.format(totalPrice * 1.05));
