@@ -1,9 +1,7 @@
 package com.perscholas.classworks.coffee_shop;
 
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class CoffeeShop {
 
@@ -11,13 +9,14 @@ public class CoffeeShop {
     // this is a class level variable that will contain our list of products for sale
     private List<Product> products = new ArrayList<>();
     // this will hold the product that customers purchase
-    private List<CartItem> cart = new ArrayList<>();
+    // Map of product with quantity in the cart
+    private Map<Product, Integer> cart = new HashMap<>();
 
     private void initProducts() {
-        products.add(new Product("Small Coffee", 4.57, 0));
-        products.add(new Product("Large Coffee", 7.99, 0));
-        products.add(new Product("Sugar Cookie", 5.89, 0));
-        products.add(new Product("Egg Sandwich", 6.49, 0));
+        products.add(new Product("Small Coffee", 4.57));
+        products.add(new Product("Large Coffee", 7.99));
+        products.add(new Product("Sugar Cookie", 5.89));
+        products.add(new Product("Egg Sandwich", 6.49));
     }
 
     private void printProductMenu() {
@@ -56,31 +55,26 @@ public class CoffeeShop {
             myScanner.nextLine();
 
             // check if that selection product in the cart already or not
-            for (CartItem item : cart) {
-                if (item.getName().equals(products.get(selection - 1).getName())) {
-                    item.setQuantity(item.getQuantity() + quantity);
-                    System.out.println("Added "+ quantity + " more of the product# " + selection +" to the cart");
-                    return;
-                }
-            }
-            cart.add(new CartItem(products.get(selection - 1), quantity));
+            if (cart.containsKey(products.get(selection - 1))) {
+                cart.put(products.get(selection - 1), cart.get(products.get(selection - 1)) + quantity);
+            } else cart.put(products.get(selection - 1), quantity);
             System.out.println("Added "+ quantity + " of the product# " + selection +" to the cart");
         } else System.out.println("Invalid product number");
     }
     private void checkOut() {
-        double totalPrice = 0;
+        // Format to 2 decimal places
         DecimalFormat df = new DecimalFormat("$#.##");
-        for (int i = 0; i < cart.size(); i++) {
-            CartItem cartItem = cart.get(i);
-            totalPrice += cartItem.getTotalPrice();
+        double totalPrice = 0.0;
+        for (Product product: cart.keySet()) {
+            int quantity = cart.get(product);
+            totalPrice += product.getPrice() * quantity;
             System.out.println(
-                    "Item #" + (i+1) +
-                    " \t| Name: " + cartItem.getName() +
-                    " \t| Quantity: " + cartItem.getQuantity() +
-                    " \t| Unit Price: " + df.format(cartItem.getPrice()) +
-                    " \t| Price: " + df.format(cartItem.getTotalPrice())
+                    " \tName: " + product.getName() +
+                            " \t| Quantity: " + quantity +
+                            " \t| Unit Price: " + df.format(product.getPrice()) +
+                            " \t| Price: " + df.format(product.getPrice() * quantity)
             );
-        } // Format to 2 decimal places
+        }
         System.out.println("Subtotal: \t\t\t" + df.format(totalPrice));
         System.out.println("Sale tax: \t\t\t" + df.format(totalPrice * 0.05));
         System.out.println("Total Price: \t\t" + df.format(totalPrice * 1.05));
