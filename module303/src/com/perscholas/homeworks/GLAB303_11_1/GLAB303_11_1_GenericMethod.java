@@ -1,4 +1,4 @@
-package com.perscholas.homeworks;
+package com.perscholas.homeworks.GLAB303_11_1;
 
 class GMultipleDatatype  <Datatypeone, DatatypeTwo>  {
     Datatypeone valueOne;
