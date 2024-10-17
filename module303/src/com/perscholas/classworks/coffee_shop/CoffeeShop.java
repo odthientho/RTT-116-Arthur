@@ -26,6 +26,19 @@ public class CoffeeShop {
         }
     }
 
+    private int readNumberFromUser(String question) {
+        System.out.print(question);
+        try {
+            return myScanner.nextInt();
+            // Java will still call finally !!!! //
+        } catch (Exception e) {
+            System.out.println("Invalid Input");
+            return -1;
+        } finally {
+            myScanner.nextLine();
+        }
+    }
+
     private int printMainMenu() {
         System.out.println("*************************");
         System.out.println("Welcome to Coffee Shop!");
@@ -33,10 +46,7 @@ public class CoffeeShop {
         System.out.println("2. Purchase product");
         System.out.println("3. Check Out");
         System.out.println("4. Exit");
-        System.out.print("Enter your choice: ");
-        int selection = myScanner.nextInt();
-        myScanner.nextLine();
-        return selection;
+        return readNumberFromUser("Enter your choice: ");
     }
 
     private void addProductToCart() {
@@ -44,22 +54,22 @@ public class CoffeeShop {
         printProductMenu();
 
         // ask which one they want to purchase
-        System.out.print("Enter product number: ");
-        int selection = myScanner.nextInt();
-        myScanner.nextLine();
+        int selection = readNumberFromUser("Enter product number: ");
 
         // make sure product selected in all products that have
         if (selection > 0 && selection <= products.size()) {
-            System.out.print("How many? ");
-            int quantity = myScanner.nextInt();
-            myScanner.nextLine();
-
-            // check if that selection product in the cart already or not
-            if (cart.containsKey(products.get(selection - 1))) {
-                cart.put(products.get(selection - 1), cart.get(products.get(selection - 1)) + quantity);
-            } else cart.put(products.get(selection - 1), quantity);
-            System.out.println("Added "+ quantity + " of the product# " + selection +" to the cart");
-        } else System.out.println("Invalid product number");
+            Product product = products.get(selection - 1);
+            int quantity = readNumberFromUser("How many? ");
+            if (quantity <= 0) {
+                System.out.println("Invalid Quantity");
+            } else {
+                // check if that selection product in the cart already or not
+                // update real quantity
+                if (cart.containsKey(product)) quantity += cart.get(product);
+                cart.put(product, quantity);
+                System.out.println("Added " + quantity + " of the product# " + selection + " to the cart");
+            }
+        } else System.out.println("Invalid Product Number");
     }
     private void checkOut() {
         // Format to 2 decimal places
@@ -69,7 +79,7 @@ public class CoffeeShop {
             int quantity = cart.get(product);
             totalPrice += product.getPrice() * quantity;
             System.out.println(
-                    " \tName: " + product.getName() +
+                    "Name: " + product.getName() +
                             " \t| Quantity: " + quantity +
                             " \t| Unit Price: " + df.format(product.getPrice()) +
                             " \t| Price: " + df.format(product.getPrice() * quantity)
@@ -86,7 +96,6 @@ public class CoffeeShop {
             System.exit(0);
         }
     }
-
     // This is where project starts
     public void start() {
         // 1) initialize the products for sale
