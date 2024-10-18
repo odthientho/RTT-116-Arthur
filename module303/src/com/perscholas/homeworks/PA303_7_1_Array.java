@@ -1,8 +1,6 @@
 package com.perscholas.homeworks;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
-import java.util.Objects;
 import java.util.Scanner;
 
 public class PA303_7_1_Array {

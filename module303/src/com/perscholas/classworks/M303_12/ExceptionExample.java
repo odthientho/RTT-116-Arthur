@@ -1,7 +1,5 @@
 package com.perscholas.classworks.M303_12;
 
-import java.sql.SQLOutput;
-
 public class ExceptionExample {
     public static void main(String[] args) {
         int[] nunbers = {1, 2, 3, 4, 5};
