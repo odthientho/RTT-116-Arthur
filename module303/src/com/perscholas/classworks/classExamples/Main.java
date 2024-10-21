@@ -48,5 +48,29 @@ public class Main {
         triangle.setName("Triangle");
         triangle.setBase(2.0);
         triangle.setHeight(3.0);
+
+        // Anonymous Class
+        Shape square = new Shape() {
+
+            public double getWidth() {
+                return width;
+            }
+
+            public void setWidth(double width) {
+                this.width = width;
+            }
+
+            private double width;
+
+            @Override
+            public double calculateArea() {
+                return width * width;
+            }
+
+            @Override
+            public double calculatePerimeter() {
+                return 0;
+            }
+        };
     }
 }
