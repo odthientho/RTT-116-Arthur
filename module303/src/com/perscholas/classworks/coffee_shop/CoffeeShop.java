@@ -16,7 +16,7 @@ public class CoffeeShop {
         products.add(new Product("Small Coffee", 4.57));
         products.add(new Product("Large Coffee", 7.99));
         products.add(new Product("Sugar Cookie", 5.89));
-        products.add(new Product("Chocolate Cookie", 5.89));
+        products.add(new Product("Choco Cookie", 5.89));
         products.add(new Product("Egg Sandwich", 6.49));
 /**
         // sorted the list in the order of price
@@ -80,8 +80,9 @@ public class CoffeeShop {
         System.out.println("1. Print product menu");
         System.out.println("2. Search product menu");
         System.out.println("3. Purchase product");
-        System.out.println("4. Check Out");
-        System.out.println("5. Exit");
+        System.out.println("4. Remove product");
+        System.out.println("5. Check Out");
+        System.out.println("6. Exit");
         return readNumberFromUser("Enter your choice: ");
     }
 
@@ -104,6 +105,31 @@ public class CoffeeShop {
                 if (cart.containsKey(product)) quantity += cart.get(product);
                 cart.put(product, quantity);
                 System.out.println("Added " + quantity + " of the product# " + selection + " to the cart");
+            }
+        } else System.out.println("Invalid Product Number");
+    }
+    private void removeProductFromCart() {
+        // print the menu for customer to choose
+        printProductMenu();
+
+        // ask which one they want to purchase
+        int selection = readNumberFromUser("Which product do you want to remove? : ");
+
+        // make sure product selected in all products that have
+        if (selection > 0 && selection <= products.size()) {
+            Product product = products.get(selection - 1);
+            if (!cart.containsKey(product)) System.out.println("Product was not in the cart yet");
+            else {
+                int quantity = readNumberFromUser("How many? ");
+                if (quantity >= cart.get(product)) {
+                    System.out.println("You do not that many products in the cart");
+                    System.out.println("We will remove all the product in the cart");
+                    cart.remove(product);
+                } else {
+                    quantity = cart.get(product) - quantity;
+                    cart.put(product, quantity);
+                    System.out.println("Removed " + quantity + " of the product# " + selection + " to the cart");
+                }
             }
         } else System.out.println("Invalid Product Number");
     }
@@ -149,16 +175,20 @@ public class CoffeeShop {
                     addProductToCart();
                     break;
                 case 4:
-                    checkOut();
+                    removeProductFromCart();
                     break;
                 case 5:
+                    checkOut();
+                    break;
+                case 6:
                     // let exit the system with status of 0 successful
                     System.out.println("Goodbye!");
                     System.exit(0);
                 default:
                     System.out.println("Invalid choice");
             }
-            System.out.println();
+            System.out.println("Press ENTER to continue");
+            myScanner.nextLine();
         } while (true);
     }
 
