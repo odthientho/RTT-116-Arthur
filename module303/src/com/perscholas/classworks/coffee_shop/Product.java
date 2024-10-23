@@ -26,4 +26,8 @@ public class Product {
         this.name = name;
     }
 
+    @Override
+    public String toString() {
+        return "Product \t | \t Name: " + name + " \t| Price: " + price;
+    }
 }

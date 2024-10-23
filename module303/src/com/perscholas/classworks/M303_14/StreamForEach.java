@@ -2,6 +2,7 @@ package com.perscholas.classworks.M303_14;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class StreamForEach {
     public static void main(String[] args) {
@@ -20,12 +21,14 @@ public class StreamForEach {
         });
 
         // fast way of removing an item that match an description
-        boolean isRemoved = list.removeIf(e -> e.startsWith("t"));
+        boolean isRemoved = list.removeIf(e -> e.startsWith("o"));
         if (isRemoved) {
             System.out.println(list.size());
             list.stream().forEach(e -> {
                 System.out.println(e.toUpperCase());
             });
         }
+
+        List<String> filteredList = list.stream().filter(e -> e.startsWith("t")).toList();
     }
 }

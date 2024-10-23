@@ -16,14 +16,49 @@ public class CoffeeShop {
         products.add(new Product("Small Coffee", 4.57));
         products.add(new Product("Large Coffee", 7.99));
         products.add(new Product("Sugar Cookie", 5.89));
+        products.add(new Product("Chocolate Cookie", 5.89));
         products.add(new Product("Egg Sandwich", 6.49));
+/**
+        // sorted the list in the order of price
+        // println each sorted products using toString override method
+        // will not modify the original list
+        List<Product> sortedProducts = new ArrayList<>(products.stream().sorted(Comparator.comparing(Product::getPrice)).toList());
+
+        // this will modify the original list
+        products.sort(Comparator.comparing(Product::getPrice).thenComparing(Product::getName));
+        products.forEach(System.out::println);
+ **/
+        printSortedProducts(products);
+    }
+
+    private void printSortedProducts(List<Product> source) {
+        for (int outer = 0; outer < source.size()-1; outer++) {
+            for (int inner = outer + 1; inner < source.size(); inner++) {
+                Product outerProduct = source.get(outer);
+                Product innerProduct = source.get(inner);
+                if (outerProduct.getPrice() > innerProduct.getPrice()) {
+                    source.set(inner, outerProduct);
+                    source.set(outer, innerProduct);
+                }
+            }
+        }
+        source.forEach(System.out::println);
     }
 
     private void printProductMenu() {
         for (int i = 0; i < products.size(); i++) {
             Product product = products.get(i);
-            System.out.println("Product #" + (i+1) + " \t| Name: " + product.getName() + " \t| Price: " + product.getPrice());
+            System.out.println("Product #" + (i + 1) + " \t| Name: " + product.getName() + " \t| Price: " + product.getPrice());
         }
+    }
+    private void searchProductMenu() {
+        // TODO create a new main menu option that allows you to search the list of products for a user entered name
+        System.out.print("Enter a keyword to search: ");
+        String keyword = myScanner.nextLine();
+        List<Product> filteredProducts = products.stream().filter(e -> e.getName().contains(keyword)).toList();
+        if (filteredProducts.isEmpty()) {
+            System.out.println("No products matched");
+        } else filteredProducts.forEach(System.out::println);
     }
 
     private int readNumberFromUser(String question) {
@@ -42,10 +77,11 @@ public class CoffeeShop {
     private int printMainMenu() {
         System.out.println("*************************");
         System.out.println("Welcome to Coffee Shop!");
-        System.out.println("1. See product menu");
-        System.out.println("2. Purchase product");
-        System.out.println("3. Check Out");
-        System.out.println("4. Exit");
+        System.out.println("1. Print product menu");
+        System.out.println("2. Search product menu");
+        System.out.println("3. Purchase product");
+        System.out.println("4. Check Out");
+        System.out.println("5. Exit");
         return readNumberFromUser("Enter your choice: ");
     }
 
@@ -107,12 +143,15 @@ public class CoffeeShop {
                     printProductMenu();
                     break;
                 case 2:
-                    addProductToCart();
+                    searchProductMenu();
                     break;
                 case 3:
-                    checkOut();
+                    addProductToCart();
                     break;
                 case 4:
+                    checkOut();
+                    break;
+                case 5:
                     // let exit the system with status of 0 successful
                     System.out.println("Goodbye!");
                     System.exit(0);
