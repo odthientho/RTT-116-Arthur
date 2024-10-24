@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 class Animal {
     public void makeSound() {
@@ -62,8 +59,76 @@ public class HackerRankPractice {
         }
         return result;
     }
+    public static int cardPackets(List<Integer> cardTypes) {
+        // Write your code here
+        int minimum = 500;
+        for (int packet = 2; packet <= 500; packet++) {
+            int num = 0;
+            for (int i = 0; i < cardTypes.size(); i++) {
+                num += (cardTypes.get(i) % packet == 0 ? 0 : packet - (cardTypes.get(i) % packet));
+            }
+            if (minimum > num) minimum = num;
+        }
+        return minimum;
+    }
+
+    public static int maxMin(List<Integer> arr, int k) {
+        // Write your code here
+        int n = arr.size();
+        ArrayDeque<Integer> deque = new ArrayDeque<>();
+        int maxOfMins = Integer.MIN_VALUE;
+
+        // Process the first window of size k
+        for (int i = 0; i < k; i++) {
+            // Remove elements from the deque that are greater than the current element
+            while (!deque.isEmpty() && arr.get(deque.peekLast()) >= arr.get(i)) {
+                deque.pollLast();
+            }
+            deque.offerLast(i);
+        }
+
+        // Process rest of the elements in the array
+        for (int i = k; i < n; i++) {
+            // The front of the deque is the minimum for the previous window
+            maxOfMins = Math.max(maxOfMins, arr.get(deque.peekFirst()));
+
+            // Remove elements that are out of this window
+            while (!deque.isEmpty() && deque.peekFirst() <= i - k) {
+                deque.pollFirst();
+            }
+
+            // Remove elements from the deque that are greater than the current element
+            while (!deque.isEmpty() && arr.get(deque.peekLast()) >= arr.get(i)) {
+                deque.pollLast();
+            }
+
+            deque.offerLast(i);
+        }
+
+        // Update maxOfMins for the last window
+        maxOfMins = Math.max(maxOfMins, arr.get(deque.peekFirst()));
+
+        return maxOfMins;
+        // int max = 0;
+        // for (int i = 0; i <= arr.size()-k; i++) {
+        //     int min = Collections.min(arr.subList(i, i+k));
+        //     if (min>max) max = min;
+        // }
+        // return max;
+    }
+    @FunctionalInterface
+    interface MyFunctionalInterface {
+        public Integer sqr(int a);
+        default String sqr(String s) {
+            return s+s;
+        }
+    }
 
     public static void main(String[] args) {
+        MyFunctionalInterface fi = n -> {
+            return n*n;
+        };
+        System.out.println(fi.sqr("Arthur"));
 //        List<Integer> a = new ArrayList<>();
 //        a.add(1);
 //        a.add(5);
@@ -98,6 +163,14 @@ public class HackerRankPractice {
 //        weight.add(1);
 //        weight.add(1);
 //        System.out.println(numDuplicates(name, price, weight));
-        System.out.println(simpleCipher("A",1));
+//        List<Integer> numPacket = new ArrayList<>();
+//        numPacket.add(2);
+//        numPacket.add(8);
+//        numPacket.add(3);
+//        numPacket.add(5);
+//        numPacket.add(4);
+//        numPacket.add(5);
+//        numPacket.add(2);
+//        System.out.println(maxMin(numPacket, 4));
     }
 }
