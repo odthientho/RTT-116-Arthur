@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class ScanDelimiterdFile {
     public static void main(String[] args) throws FileNotFoundException {
         try {
-            String location = "./cars.csv";
+            String location = "./src/com/perscholas/homeworks/GLAB303_13_1/cars.csv";
             File file = new File(location);
             Scanner input = new Scanner(file);
             ArrayList<String[]> data = new ArrayList<String[]>();
