@@ -35,3 +35,23 @@ where c.sales_rep_employee_id = e.id and e.office_id = o.id and o.city='Boston';
 select c.contact_firstname, c.contact_lastname, c.customer_name, o.city
 from customers c, employees e, offices o
 where c.sales_rep_employee_id = e.id and e.office_id = o.id;
+
+-- I want to see all customers that have made an order
+-- I want to see customer name, office, employee name, and order date
+select e.firstname, c.customer_name, o.city, ord.order_date
+from customers c, offices o, employees e, orders ord
+where c.sales_rep_employee_id = e.id and e.office_id = o.id and ord.customer_id = c.id
+order by e.id, c.customer_name;
+
+-- I want to see all products that have been orders
+-- how many times each product has been ordered (different from quantity) -- distinct order details
+-- i want to see the product that was order the most on top (order by desc)
+-- order number, product name, and number of items this products was order
+select *
+from orderdetails;
+select *
+from products;
+select orderdetails.product_id, count(*) NumberOfOrders, sum(orderdetails.quantity_ordered) TotalQuantity
+from orderdetails
+group by product_id
+order by NumberOfOrders;
