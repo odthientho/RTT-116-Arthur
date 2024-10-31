@@ -91,3 +91,13 @@ where p.id = od.product_id
   and od.order_id = o.id
 group by p.product_name, YEAR(o.order_date)
 order by YEAR(o.order_date), totalprofit desc;
+
+--  Show me all the customers that have an outstanding balance due...
+-- would have to sum the payments for the customer and
+-- compare the total amount paid to the total amount purchased.
+select c.customer_name, sum(p.amount) totalPayment, sum(od.quantity_ordered*od.price_each) totalPurchase
+from customers c, payments p, orders o, orderdetails od
+where c.id = p.customer_id and c.id = o.customer_id and o.id = od.order_id
+group by c.customer_name
+having totalPayment > totalPurchase;
+
