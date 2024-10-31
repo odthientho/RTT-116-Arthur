@@ -20,3 +20,24 @@ order by c.id;
 select e.id, e.firstname, e.lastname, e.job_title, concat(concat(m.firstname, ' '), m.lastname) Manager, m.job_title
 from employees e, employees m
 where e.reports_to  = m.id;
+
+-- when doing a self join you use the same table in the from 2 times
+-- self referencing table
+select e.id, e.lastname, e.firstname, e.job_title, m.id as manager_id, m.lastname as manager_lastname, m.firstname as manager_firstname, m.job_title
+from employees e, employees m
+where e.reports_to = m.id;
+
+-- ======================= UNION =========================
+-- does get used from time to time
+-- main use is in reports or very complex queryies
+-- union does not include duplicates - meaning after mering the result sets there are no duplicates
+-- union all inludes duplicates
+
+select * from customers where customer_name like 'A%'
+union
+select * from customers where customer_name like 'A%';
+
+select phone from customers
+where customer_name like 'A%'
+union
+select firstname from employees;
