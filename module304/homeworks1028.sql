@@ -100,4 +100,3 @@ from customers c, payments p, orders o, orderdetails od
 where c.id = p.customer_id and c.id = o.customer_id and o.id = od.order_id
 group by c.customer_name
 having totalPayment > totalPurchase;
-
