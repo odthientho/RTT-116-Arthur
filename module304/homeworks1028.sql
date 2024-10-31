@@ -95,8 +95,29 @@ order by YEAR(o.order_date), totalprofit desc;
 --  Show me all the customers that have an outstanding balance due...
 -- would have to sum the payments for the customer and
 -- compare the total amount paid to the total amount purchased.
-select c.customer_name, sum(p.amount) totalPayment, sum(od.quantity_ordered*od.price_each) totalPurchase
+select c.id, c.customer_name, sum(p.amount) totalPayment, sum(od.quantity_ordered*od.price_each) totalPurchase
 from customers c, payments p, orders o, orderdetails od
-where c.id = p.customer_id and c.id = o.customer_id and o.id = od.order_id
-group by c.customer_name
+where p.customer_id = c.id and c.id = o.customer_id and o.id = od.order_id
+group by c.id
 having totalPayment > totalPurchase;
+
+select c.id AS Customer,
+SUM(od.quantity_ordered * od.price_each) AS Due,
+COALESCE(SUM(p.amount), 0) AS Paid,
+SUM(od.quantity_ordered * od.price_each) - COALESCE(SUM(p.amount), 0) AS Balance
+FROM customers c
+JOIN orders o on c.id = o.customer_id
+JOIN orderdetails od ON o.id = od.order_id
+LEFT JOIN payments p ON c.id = p.customer_id
+GROUP BY c.id, c.customer_name
+ORDER BY c.id;
+
+select c.id, c.contact_firstname, c.contact_lastname,
+       sum(quantity_ordered * price_each) as total_purchase, sum(pm.amount) as total_payment,
+       if(sum(quantity_ordered * price_each) > sum(pm.amount), (sum(quantity_ordered * price_each) - sum(pm.amount)), 'No outstanding' ) as outstanding_balance
+from customers c, payments pm, orderdetails od, orders o
+where pm.customer_id = c.id
+  and o.customer_id = c.id
+  and od.order_id = o.id
+group by c.id
+order by c.id;
