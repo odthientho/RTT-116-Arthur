@@ -14,8 +14,7 @@ public class JDBExample {
             String SelectSQL = "Select * FROM employees";
             Statement stmt = connection.createStatement();
             ResultSet result =  stmt.executeQuery(SelectSQL);
-            while(result.next())
-            {
+            while(result.next()) {
                 String EmployeeID  = result.getString("id");
                 String fname = result.getString("firstname");
                 String lname  = result.getString("lastName");
