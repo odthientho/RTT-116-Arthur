@@ -1,15 +1,59 @@
 package org.example.database.dao;
 
-import jakarta.persistence.NoResultException;
 import jakarta.persistence.TypedQuery;
 import org.example.database.entity.Product;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ProductDAO {
     // old style: make session factory for all DAO
     private SessionFactory factory = new Configuration().configure().buildSessionFactory();
+
+    /**
+     *
+     * @param product
+     */
+    public void update(Product product) {
+        // for hibernate
+        // update: the product has already existed to work without error
+        Session session = factory.openSession();
+        session.beginTransaction();
+        session.merge(product);
+        session.getTransaction().commit();
+        session.close();
+    }
+
+    /**
+     *
+     * @param product
+     */
+    public void create(Product product) {
+        // for hibernate
+        // update: the product has already existed to work without error
+        Session session = factory.openSession();
+        session.beginTransaction();
+        session.persist(product);
+        session.getTransaction().commit();
+        session.close();
+    }
+
+    /**
+     *
+     * @param product
+     */
+    public void delete(Product product) {
+        // for hibernate
+        // update: the product has already existed to work without error
+        Session session = factory.openSession();
+        session.beginTransaction();
+        session.detach(product);
+        session.getTransaction().commit();
+        session.close();
+    }
 
     public Product findById(int productId) {
         // the sql to running on database
@@ -40,6 +84,27 @@ public class ProductDAO {
         } finally {
             session.close();
         }
-
     }
+
+    /**
+     *
+     * @param name
+     * @return a list of products having @param name in its product name
+     */
+    public List<Product> search(String name) {
+        String hqlQuery = "SELECT p FROM Product p WHERE p.productName LIKE :productName";
+        Session session = factory.openSession();
+        TypedQuery<Product> query = session.createQuery(hqlQuery, Product.class);
+        query.setParameter("productName", "%" + name + "%");
+        try {
+            List<Product> products = query.getResultList();
+            return products;
+        } catch (Exception e) {
+            // if there is no results / errors, we will have to return list of nothing
+            return new ArrayList<Product>();
+        } finally {
+            session.close();
+        }
+    }
+
 }
