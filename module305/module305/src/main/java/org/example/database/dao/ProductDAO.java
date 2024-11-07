@@ -50,7 +50,7 @@ public class ProductDAO {
         // update: the product has already existed to work without error
         Session session = factory.openSession();
         session.beginTransaction();
-        session.detach(product);
+        session.delete(product);
         session.getTransaction().commit();
         session.close();
     }
