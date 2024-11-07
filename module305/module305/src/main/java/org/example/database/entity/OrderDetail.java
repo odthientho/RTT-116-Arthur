@@ -6,11 +6,11 @@ import lombok.*;
 
 @Entity
 @Table(name = "orderdetails")
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 @ToString
-@NoArgsConstructor
-@AllArgsConstructor
 public class OrderDetail {
 
     @Id
