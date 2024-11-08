@@ -13,14 +13,17 @@
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
 
         <!-- show debugging sql for you to understand -->
-        <property name="hibernate.show_sql" >true </property>
-        <property name="hibernate.format_sql" >true </property>
+        <property name="hibernate.show_sql" >false </property>
+        <property name="hibernate.format_sql" >false </property>
         <property name="connection.pool_size" >3 </property>
 
         <!-- this is the same connection url that we used in the demo -->
         <property name="connection.url">jdbc:mysql://localhost:3306/classic_models</property>
         <property name="connection.username">root</property>
         <property name="connection.password">Abc@1234</property>
+
+        <!-- allow hibernate lazy load even its no transaction or session current -->
+        <property name="hibernate.enable_lazy_load_no_trans">true</property>
 
         <!-- list all of our entity objects -->
         <mapping class="org.example.database.entity.Customer"/>

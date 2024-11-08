@@ -62,9 +62,6 @@ public class EmployeeDAO {
         query.setParameter("employeeId", employeeId);
         try {
             Employee employee = query.getSingleResult();
-            Hibernate.initialize(employee.getSupervisor());
-            Hibernate.initialize(employee.getSubordinates());
-            Hibernate.initialize(employee.getCustomers());
             return employee;
         } catch (Exception e) {
             return null;

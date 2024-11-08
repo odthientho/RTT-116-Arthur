@@ -13,18 +13,22 @@ import java.util.Scanner;
 
 public class HibernateDemo {
     public static void main(String[] args) {
-//        EmployeeDAO employeeDAO = new EmployeeDAO();
-//        Employee employee = employeeDAO.findById(1188);
-//        System.out.println(employee);
-//        System.out.println(employee.getSupervisor());
-//        System.out.println(employee.getSubordinates());
-//        System.out.println(employee.getCustomers());
-
-        CustomerDAO customerDAO = new CustomerDAO();
-        Customer customer = customerDAO.findById(103);
-        Employee employee = customer.getRepEmployee();
-        System.out.println(customer);
+        EmployeeDAO employeeDAO = new EmployeeDAO();
+        Employee employee = employeeDAO.findById(1056);
         System.out.println(employee);
+        System.out.println(employee.getSupervisor());
+        System.out.println(employee.getSubordinates());
+        System.out.println(employee.getCustomers());
+
+//        CustomerDAO customerDAO = new CustomerDAO();
+//        Customer customer = customerDAO.findById(103);
+//        Employee employee = customer.getRepEmployee();
+//        System.out.println(customer);
+//        System.out.println(employee);
+//        List<Customer> customers = employee.getCustomers();
+//        for (Customer c : customers) {
+//            System.out.println(c);
+//        }
 
 //        ProductDAO productDAO = new ProductDAO();
 //        Product product = productDAO.findById(103);

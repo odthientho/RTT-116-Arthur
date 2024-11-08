@@ -52,8 +52,6 @@ public class CustomerDAO {
         query.setParameter("customerId", customerId);
         try {
             Customer customer = query.getSingleResult();
-            Hibernate.initialize(customer.getRepEmployee());
-            // have to close the session at the end to tell hibernate to give the connection back to the pool
             return customer;
         } catch (Exception e) {
             return null;

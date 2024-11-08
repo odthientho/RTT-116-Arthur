@@ -57,6 +57,6 @@ public class Employee {
     @OneToMany(mappedBy = "repEmployee", fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
     @ToString.Exclude
-    private Set<Customer> customers;
+    private List<Customer> customers;
 
 }
