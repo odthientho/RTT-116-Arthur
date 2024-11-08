@@ -1,9 +1,11 @@
 package org.example;
 
 import org.example.database.dao.CustomerDAO;
+import org.example.database.dao.EmployeeDAO;
 import org.example.database.dao.OrderDAO;
 import org.example.database.dao.ProductDAO;
 import org.example.database.entity.Customer;
+import org.example.database.entity.Employee;
 import org.example.database.entity.Product;
 
 import java.util.List;
@@ -11,6 +13,19 @@ import java.util.Scanner;
 
 public class HibernateDemo {
     public static void main(String[] args) {
+//        EmployeeDAO employeeDAO = new EmployeeDAO();
+//        Employee employee = employeeDAO.findById(1188);
+//        System.out.println(employee);
+//        System.out.println(employee.getSupervisor());
+//        System.out.println(employee.getSubordinates());
+//        System.out.println(employee.getCustomers());
+
+        CustomerDAO customerDAO = new CustomerDAO();
+        Customer customer = customerDAO.findById(103);
+        Employee employee = customer.getRepEmployee();
+        System.out.println(customer);
+        System.out.println(employee);
+
 //        ProductDAO productDAO = new ProductDAO();
 //        Product product = productDAO.findById(103);
 ////        System.out.println(product);
@@ -49,23 +64,23 @@ public class HibernateDemo {
 //            System.out.println(customer);
 //            customerDAO.delete(customer);
 //        }
-        ProductDAO productDAO = new ProductDAO();
-        List<Product> products = productDAO.findByOrderId(10100);
-        for (Product product : products) {
-            System.out.println(product);
-        }
-
-        Scanner scanner = new Scanner(System.in);
-        while (true) {
-            System.out.print("Enter Order Id: ");
-            int orderId = Integer.parseInt(scanner.nextLine());
-            productDAO.findByOrderId(orderId);
-            for (Product product : products) {
-                System.out.println(product.getProductName() + " | " + product.getBuyPrice() + " | " + product.getQuantityInStock());
-            }
-            System.out.println("Exist? (Y/N)");
-            String answer = scanner.nextLine();
-            if (answer.toUpperCase().equals("Y")) System.exit(0);
-        }
+//        ProductDAO productDAO = new ProductDAO();
+//        List<Product> products = productDAO.findByOrderId(10100);
+//        for (Product product : products) {
+//            System.out.println(product);
+//        }
+//
+//        Scanner scanner = new Scanner(System.in);
+//        while (true) {
+//            System.out.print("Enter Order Id: ");
+//            int orderId = Integer.parseInt(scanner.nextLine());
+//            productDAO.findByOrderId(orderId);
+//            for (Product product : products) {
+//                System.out.println(product.getProductName() + " | " + product.getBuyPrice() + " | " + product.getQuantityInStock());
+//            }
+//            System.out.println("Exist? (Y/N)");
+//            String answer = scanner.nextLine();
+//            if (answer.toUpperCase().equals("Y")) System.exit(0);
+//        }
     }
 }

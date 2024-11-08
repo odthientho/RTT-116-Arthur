@@ -47,8 +47,13 @@ public class Customer {
     @Column(name = "country", length = 50)
     private String country;
 
-    @Column(name = "sales_rep_employee_id", length = 50)
-    private Integer salesRepEmployeeId;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "sales_rep_employee_id", nullable = false)
+    @ToString.Exclude
+    private Employee repEmployee;
+
+    @Column(name = "sales_rep_employee_id", insertable = false, updatable = false)
+    private int salesRepEmployeeId;
 
     @Column(name = "credit_limit", columnDefinition = "DECIMAL")
     private Double creditLimit;

@@ -3,6 +3,9 @@ package org.example.database.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+import java.util.Set;
+
 @Entity
 @Table(name = "employees")
 @AllArgsConstructor
@@ -32,8 +35,15 @@ public class Employee {
     @Column(name = "email")
     private String email; // Corresponds to the 'email' column
 
-    @Column(name = "reports_to")
-    private int reportsTo; // Corresponds to the 'reports_to' column (assuming it's a foreign key)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "reports_to", nullable = false)
+    @ToString.Exclude
+    private Employee supervisor;
+
+    @OneToMany(mappedBy = "supervisor", fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    @ToString.Exclude
+    private List<Employee> subordinates;
 
     @Column(name = "job_title")
     private String jobTitle; // Corresponds to the 'job_title' column
@@ -43,5 +53,10 @@ public class Employee {
 
     @Column(name = "profile_image_url")
     private String profileImageUrl; // Corresponds to the 'profile_image_url' column
+
+    @OneToMany(mappedBy = "repEmployee", fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    @ToString.Exclude
+    private Set<Customer> customers;
 
 }

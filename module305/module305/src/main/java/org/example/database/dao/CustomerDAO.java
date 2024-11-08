@@ -2,7 +2,9 @@ package org.example.database.dao;
 
 import jakarta.persistence.TypedQuery;
 import org.example.database.entity.Customer;
+import org.example.database.entity.Employee;
 import org.example.database.entity.OrderDetail;
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -43,13 +45,21 @@ public class CustomerDAO {
         session.close();
     }
 
-    public Customer findById(int id) {
+    public Customer findById(int customerId) {
+        String hqlQuery = "SELECT c FROM Customer c WHERE id = :customerId";
         Session session = sessionFactory.openSession();
-        session.beginTransaction();
-        Customer customer = (Customer) session.get(Customer.class, id);
-        session.getTransaction().commit();
-        session.close();
-        return customer;
+        TypedQuery<Customer> query = session.createQuery(hqlQuery, Customer.class);
+        query.setParameter("customerId", customerId);
+        try {
+            Customer customer = query.getSingleResult();
+            Hibernate.initialize(customer.getRepEmployee());
+            // have to close the session at the end to tell hibernate to give the connection back to the pool
+            return customer;
+        } catch (Exception e) {
+            return null;
+        } finally {
+            session.close();
+        }
     }
 
     public List<Customer> findByName(String firstName, String lastName) {
