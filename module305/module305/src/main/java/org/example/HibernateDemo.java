@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.database.dao.OrderDAO;
 import org.example.database.dao.ProductDAO;
 import org.example.database.entity.Product;
 
@@ -36,5 +37,8 @@ public class HibernateDemo {
 
 //        Product product2 = productDAO.findById(112);
 //        productDAO.delete(product2);
+
+        OrderDAO orderDAO = new OrderDAO();
+        System.out.println(orderDAO.getOrderById(10100));
     }
 }

@@ -45,11 +45,20 @@ public class ProductDAO {
      *
      * @param product
      */
-    public void delete(Product product) {
+    public void deleteByProduct(Product product) {
         // for hibernate
         // update: the product has already existed to work without error
         Session session = factory.openSession();
         session.beginTransaction();
+        session.delete(product);
+        session.getTransaction().commit();
+        session.close();
+    }
+
+    public void deleteById(int id) {
+        Session session = factory.openSession();
+        session.beginTransaction();
+        Product product = (Product) session.get(Product.class, id);
         session.delete(product);
         session.getTransaction().commit();
         session.close();
