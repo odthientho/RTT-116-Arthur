@@ -50,18 +50,30 @@ public class ProductDAO {
         // update: the product has already existed to work without error
         Session session = factory.openSession();
         session.beginTransaction();
-        session.delete(product);
-        session.getTransaction().commit();
-        session.close();
+        try {
+            session.delete(product);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            session.getTransaction().rollback();
+            System.out.println(e.getMessage());
+        } finally {
+            session.close();
+        }
     }
 
     public void deleteById(int id) {
         Session session = factory.openSession();
         session.beginTransaction();
         Product product = (Product) session.get(Product.class, id);
-        session.delete(product);
-        session.getTransaction().commit();
-        session.close();
+        try {
+            session.delete(product);
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            session.getTransaction().rollback();
+            System.out.println(e.getMessage());
+        } finally {
+            session.close();
+        }
     }
 
     public Product findById(int productId) {
@@ -90,6 +102,22 @@ public class ProductDAO {
             return product;
         } catch (Exception e) {
             return null;
+        } finally {
+            session.close();
+        }
+    }
+
+    public List<Product> findByOrderId(int orderId) {
+        Session session = factory.openSession();
+//        String hqlQuery = "SELECT p FROM Product p, OrderDetail od WHERE p.id = od.productId AND od.orderId = :orderId";
+        String hqlQuery = "SELECT p FROM Product p WHERE p.id IN (SELECT od.productId FROM OrderDetail od WHERE od.orderId = :orderId)";
+        TypedQuery<Product> query = session.createQuery(hqlQuery, Product.class);
+        query.setParameter("orderId", orderId);
+        try {
+            List<Product> products = query.getResultList();
+            return products;
+        } catch (Exception e) {
+            return new ArrayList<>();
         } finally {
             session.close();
         }

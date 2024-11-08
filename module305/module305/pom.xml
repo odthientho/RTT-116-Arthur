@@ -36,6 +36,13 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- JSoup for HTML parsing -->
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.16.1</version>
+        </dependency>
+
     </dependencies>
 
 </project>
