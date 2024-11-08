@@ -7,6 +7,7 @@ import org.example.database.entity.Customer;
 import org.example.database.entity.Product;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class HibernateDemo {
     public static void main(String[] args) {
@@ -52,6 +53,19 @@ public class HibernateDemo {
         List<Product> products = productDAO.findByOrderId(10100);
         for (Product product : products) {
             System.out.println(product);
+        }
+
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.print("Enter Order Id: ");
+            int orderId = Integer.parseInt(scanner.nextLine());
+            productDAO.findByOrderId(orderId);
+            for (Product product : products) {
+                System.out.println(product.getProductName() + " | " + product.getBuyPrice() + " | " + product.getQuantityInStock());
+            }
+            System.out.println("Exist? (Y/N)");
+            String answer = scanner.nextLine();
+            if (answer.toUpperCase().equals("Y")) System.exit(0);
         }
     }
 }
