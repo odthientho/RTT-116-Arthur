@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "products")
@@ -45,4 +46,8 @@ public class Product {
 
     @Column(name = "msrp", precision = 10, scale = 2)
     private BigDecimal msrp;
+
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ToString.Exclude
+    private List<OrderDetail> orderDetails;
 }

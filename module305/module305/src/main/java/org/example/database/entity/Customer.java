@@ -3,6 +3,8 @@ package org.example.database.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "customers")
 @AllArgsConstructor
@@ -57,4 +59,8 @@ public class Customer {
 
     @Column(name = "credit_limit", columnDefinition = "DECIMAL")
     private Double creditLimit;
+
+    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ToString.Exclude
+    private List<Order> orders;
 }

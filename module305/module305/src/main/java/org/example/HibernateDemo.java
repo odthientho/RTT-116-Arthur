@@ -1,24 +1,49 @@
 package org.example;
 
-import org.example.database.dao.CustomerDAO;
-import org.example.database.dao.EmployeeDAO;
-import org.example.database.dao.OrderDAO;
-import org.example.database.dao.ProductDAO;
-import org.example.database.entity.Customer;
-import org.example.database.entity.Employee;
-import org.example.database.entity.Product;
+import org.example.database.dao.*;
+import org.example.database.entity.*;
 
 import java.util.List;
 import java.util.Scanner;
 
 public class HibernateDemo {
     public static void main(String[] args) {
-        EmployeeDAO employeeDAO = new EmployeeDAO();
-        Employee employee = employeeDAO.findById(1056);
-        System.out.println(employee);
-        System.out.println(employee.getSupervisor());
-        System.out.println(employee.getSubordinates());
-        System.out.println(employee.getCustomers());
+        ProductDAO productDAO = new ProductDAO();
+        Product product = productDAO.findById(2);
+        System.out.println(product);
+        for (OrderDetail orderDetail : product.getOrderDetails()) {
+            System.out.println(orderDetail);
+            System.out.println(orderDetail.getOrder());
+        }
+
+//        OrderDetailDAO orderDetailDAO = new OrderDetailDAO();
+//        OrderDetail orderDetail = orderDetailDAO.findById(2);
+//        System.out.println(orderDetail);
+//        System.out.println(orderDetail.getProduct());
+//        System.out.println(orderDetail.getOrder());
+
+//        CustomerDAO customerDAO = new CustomerDAO();
+//        Customer customer = customerDAO.findById(103);
+//        System.out.println(customer);
+//        for (Order order : customer.getOrders()) {
+//            System.out.println(order);
+//        }
+//
+        OrderDAO orderDAO = new OrderDAO();
+        Order order = orderDAO.findById(10123);
+        System.out.println(order);
+        System.out.println(order.getCustomer());
+        for (OrderDetail orderDetail : order.getOrderDetails()) {
+            System.out.println(orderDetail);
+            System.out.println(orderDetail.getProduct());
+        }
+
+        //        EmployeeDAO employeeDAO = new EmployeeDAO();
+//        Employee employee = employeeDAO.findById(1056);
+//        System.out.println(employee);
+//        System.out.println(employee.getSupervisor());
+//        System.out.println(employee.getSubordinates());
+//        System.out.println(employee.getCustomers());
 
 //        CustomerDAO customerDAO = new CustomerDAO();
 //        Customer customer = customerDAO.findById(103);
