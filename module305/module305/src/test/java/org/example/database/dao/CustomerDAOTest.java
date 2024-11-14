@@ -9,8 +9,8 @@ public class CustomerDAOTest {
 
     @Test
     public void testFindById() {
-        int givenCustomerId = 103;
-        String expectedCustomerName = "Atelier graphique";
+        int givenCustomerId = 125;
+        String expectedCustomerName = "Havel & Zbyszek Co";
 
         Customer actualCustomer = customerDAO.findById(givenCustomerId);
 

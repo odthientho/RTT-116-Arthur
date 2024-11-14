@@ -15,7 +15,7 @@ public class Office {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Integer id;
 
     @Column(name = "city", length = 50)
     private String city;

@@ -17,7 +17,7 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Integer id;
 
     @Column(name = "customer_name", length = 50)
     private String customerName;
@@ -55,7 +55,7 @@ public class Customer {
     private Employee repEmployee;
 
     @Column(name = "sales_rep_employee_id", insertable = false, updatable = false)
-    private int salesRepEmployeeId;
+    private Integer salesRepEmployeeId;
 
     @Column(name = "credit_limit", columnDefinition = "DECIMAL")
     private Double creditLimit;

@@ -18,10 +18,10 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id") // Corresponds to the 'id' column in the table
-    private int id;
+    private Integer id;
 
     @Column(name = "office_id")
-    private int officeId; // Corresponds to the 'office_id' column
+    private Integer officeId; // Corresponds to the 'office_id' column
 
     @Column(name = "lastname")
     private String lastName; // Corresponds to the 'lastname' column
@@ -49,7 +49,7 @@ public class Employee {
     private String jobTitle; // Corresponds to the 'job_title' column
 
     @Column(name = "vacation_hours")
-    private int vacationHours; // Corresponds to the 'vacation_hours' column
+    private Integer vacationHours; // Corresponds to the 'vacation_hours' column
 
     @Column(name = "profile_image_url")
     private String profileImageUrl; // Corresponds to the 'profile_image_url' column

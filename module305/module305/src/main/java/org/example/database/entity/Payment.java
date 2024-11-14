@@ -18,10 +18,10 @@ public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Integer id;
 
     @Column(name = "customer_id")
-    private int customerId;
+    private Integer customerId;
 
     @Column(name = "check_number", length = 50)
     private String checkNumber;

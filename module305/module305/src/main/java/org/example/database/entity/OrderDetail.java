@@ -16,7 +16,7 @@ public class OrderDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id", nullable = false)
@@ -24,7 +24,7 @@ public class OrderDetail {
     private Order order;
 
     @Column(name = "order_id", insertable = false, updatable = false)
-    private int orderId;
+    private Integer orderId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id", nullable = false)
@@ -32,14 +32,14 @@ public class OrderDetail {
     private Product product;
 
     @Column(name = "product_id", insertable = false, updatable = false)
-    private int productId;
+    private Integer productId;
 
     @Column(name = "quantity_ordered")
-    private int quantityOrdered;
+    private Integer quantityOrdered;
 
     @Column(name = "price_each", precision = 10, scale = 2)
     private BigDecimal priceEach;
 
     @Column(name = "order_line_number")
-    private int orderLineNumber;
+    private Integer orderLineNumber;
 }
