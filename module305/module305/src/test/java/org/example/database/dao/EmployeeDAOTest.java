@@ -10,7 +10,7 @@ import java.util.List;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class EmployeeDAOTest {
     private static Employee createdEmployee = new Employee();
-    private EmployeeDAO employeeDAO = new EmployeeDAO();
+    private final EmployeeDAO employeeDAO = new EmployeeDAO();
 
     @ParameterizedTest
     @CsvSource({
