@@ -1,0 +1,44 @@
+/* Styles for making the layout responsive */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8;
+}
+
+#jobList {
+    max-height: 75vh;
+    overflow-y: auto;
+}
+
+#jobDetails {
+    max-height: 75vh;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.card {
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.nav-tabs .nav-link {
+    color: #007bff;
+}
+
+.nav-tabs .nav-link.active {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+@media (max-width: 768px) {
+    #searchInput {
+        width: 100%;
+    }
+
+    .d-flex {
+        flex-direction: column;
+    }
+
+    .col-md-4, .col-md-8 {
+        max-width: 100%;
+    }
+}
