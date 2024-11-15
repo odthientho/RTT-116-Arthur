@@ -2,26 +2,31 @@ package org.example.database.dao;
 
 import org.example.database.entity.Employee;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import java.util.List;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class EmployeeDAOTest {
-    private EmployeeDAO employeeDAO = new EmployeeDAO();
     private static Employee createdEmployee = new Employee();
+    private EmployeeDAO employeeDAO = new EmployeeDAO();
 
-    @Test
+    @ParameterizedTest
+    @CsvSource({
+            "FirstName, LastName, email@email.com, 1, 1143, 20, Sales Rep"
+    })
     @Order(1)
-    public void testCreate() {
+    public void testCreate(String firstName, String lastName, String email, int officeId, int salesRep, int vacationHours, String jobTitle) {
         // given
         Employee givenEmployeee = new Employee();
-        givenEmployeee.setFirstName("FirstName");
-        givenEmployeee.setLastName("LastName");
-        givenEmployeee.setEmail("email@email.com");
-        givenEmployeee.setOfficeId(1);
-        givenEmployeee.setReportsTo(1143);
-        givenEmployeee.setVacationHours(20);
-        givenEmployeee.setJobTitle("Sales Rep");
+        givenEmployeee.setFirstName(firstName);
+        givenEmployeee.setLastName(lastName);
+        givenEmployeee.setEmail(email);
+        givenEmployeee.setOfficeId(officeId);
+        givenEmployeee.setReportsTo(salesRep);
+        givenEmployeee.setVacationHours(vacationHours);
+        givenEmployeee.setJobTitle(jobTitle);
 
         // actual
         Assertions.assertNull(givenEmployeee.getId());
@@ -59,8 +64,8 @@ public class EmployeeDAOTest {
         Assertions.assertNotNull(employees);
         Assertions.assertFalse(employees.isEmpty());
         Assertions.assertEquals(1, employees.size());
-        for (Employee employee : employees) {
-            Assertions.assertEquals(createdEmployee.getFirstName(), employee.getFirstName());
+        for (Employee aEmployee : employees) {
+            Assertions.assertEquals(createdEmployee.getFirstName(), aEmployee.getFirstName());
         }
     }
 
