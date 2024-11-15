@@ -2,10 +2,12 @@ package org.example.database.dao;
 
 import jakarta.persistence.TypedQuery;
 import org.example.database.entity.Employee;
-import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class EmployeeDAO {
 
@@ -26,7 +28,7 @@ public class EmployeeDAO {
         session.close();
     }
 
-    public void deleteByProduct(Employee employee) {
+    public void delete(Employee employee) {
         Session session = factory.openSession();
         session.beginTransaction();
         try {
@@ -69,5 +71,22 @@ public class EmployeeDAO {
             session.close();
         }
     }
+
+
+    public List<Employee> findByFirstName(String firstName) {
+        String hqlQuery = "SELECT e FROM Employee e WHERE firstName = :firstName";
+        Session session = factory.openSession();
+        TypedQuery<Employee> query = session.createQuery(hqlQuery, Employee.class);
+        query.setParameter("firstName", firstName);
+        try {
+            List<Employee> employees = query.getResultList();
+            return employees;
+        } catch (Exception e) {
+            return new ArrayList<Employee>();
+        } finally {
+            session.close();
+        }
+    }
+
 
 }

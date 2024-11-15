@@ -36,9 +36,12 @@ public class Employee {
     private String email; // Corresponds to the 'email' column
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "reports_to", nullable = false)
+    @JoinColumn(name = "reports_to", updatable = false, insertable = false)
     @ToString.Exclude
     private Employee supervisor;
+
+    @Column(name = "reports_to", nullable = false)
+    private Integer reportsTo;
 
     @OneToMany(mappedBy = "supervisor", fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
