@@ -25,4 +25,23 @@ public class CustomerDAOTest {
         Customer customer = customerDAO.findById(1);
         Assertions.assertNull(customer);
     }
+
+    @Test
+    public void testCreateCustomer() {
+        // given: customer
+        Customer givenCustomer = new Customer();
+        givenCustomer.setCustomerName("Test");
+        givenCustomer.setCity("Test");
+        givenCustomer.setState("Test");
+        givenCustomer.setCountry("Test");
+        givenCustomer.setPhone("Test");
+        givenCustomer.setAddressLine1("Test");
+        givenCustomer.setAddressLine2("Test");
+        givenCustomer.setContactFirstname("Test");
+        givenCustomer.setContactLastname("Test");
+        givenCustomer.setCreditLimit(1000.0);
+        givenCustomer.setPostalCode("Test");
+
+        customerDAO.create(givenCustomer);
+    }
 }
