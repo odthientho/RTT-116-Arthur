@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexbox Example</title>
+  <style>
+    body {
+      padding: 5%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f0f0f0;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 5%;
+      gap: 10px;
+      justify-content: center; /* Ensures last line is centered */
+    }
+
+    .box {
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: center; /* Horizontally centers the text */
+      align-items: center;    /* Vertically centers the text */
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #ffffff;
+    }
+
+    .box1 { background-color: #ff5733; }
+    .box2 { background-color: #33ff57; }
+    .box3 { background-color: #3357ff; }
+    .box4 { background-color: #ff33a6; }
+    .box5 { background-color: #ffc300; }
+    .box6 { background-color: #6f42c1; }
+    .box7 { background-color: #17a2b8; }
+    .box8 { background-color: #fd7e14; }
+    .box9 { background-color: #291d13; }
+
+     /* Media query for screens smaller than 300px */
+     @media (max-width: 300px) {
+      .container {
+        max-width: 250px; /* Adjust container width for small screens */
+      }
+
+      .box {
+        width: 50px; /* Adjust box size for small screens */
+        height: 50px;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box box1">1</div>
+    <div class="box box2">2</div>
+    <div class="box box3">3</div>
+    <div class="box box4">4</div>
+    <div class="box box5">5</div>
+    <div class="box box6">6</div>
+    <div class="box box7">7</div>
+    <div class="box box8">8</div>
+    <div class="box box9">9</div>
+  </div>
+</body>
+</html>

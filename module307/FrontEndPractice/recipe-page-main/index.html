@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Recipe page</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f8f9fa;
+      display: flex;
+      justify-content: center;
+      align-items: center; /* Align items to the top */
+      padding-top: 20px; /* Add space from the top */
+      padding-bottom: 20px; /* Add space from the top */
+      min-height: 100vh; /* Ensure body takes full viewport height */
+    }
+
+    .recipe-card {
+      font-family: 'Outfit';
+      background-color: #ffffff;
+      border-radius: 20px;
+      width: 700px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: left;
+    }
+
+    .food-image {
+      width: 100%;
+      border-radius: 15px;
+      margin-bottom: 15px;
+    }
+
+    .recipe-title {
+      font-size: 1.5rem;
+      color: #333333;
+      margin-bottom: 10px;
+    }
+
+    .recipe-description {
+      font-size: 1rem;
+      color: #666666;
+      margin-bottom: 20px;
+    }
+
+    .prep-time {
+      background-color: hsl(330, 100%, 98%);
+      border-radius: 15px;
+      padding: 15px;
+      text-align: left;
+    }
+
+    .prep-time h2 {
+      font-size: 1.2rem;
+      color: hsl(332, 51%, 32%);
+      margin-bottom: 10px;
+    }
+
+    .prep-time ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      color: #555555;
+    }
+
+    .prep-time li {
+      margin-bottom: 5px;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="recipe-card">
+    <img src="./assets/images/image-omelette.jpeg" alt="Delicious Food" class="food-image">
+    <h1 class="recipe-title">Simple Omelette Recipe</h1>
+    <p class="recipe-description">An easy and quick dish, perfect for any meal. This classic omelette combines beaten eggs cooked 
+      to perfection, optionally filled with your choice of cheese, vegetables, or meats.</p>
+    <div class="prep-time">
+      <h2>Preparation Time</h2>
+      <ul>
+        <li><strong>Total:</strong> Approximately 10 minutes</li>
+        <li><strong>Preparation:</strong> 5 minutes</li>
+        <li><strong>Cooking:</strong> 5 minutes</li>
+      </ul>
+    </div>
+    <br>
+    <div> 
+    </div>
+  </div>
+</body>
+</html>
