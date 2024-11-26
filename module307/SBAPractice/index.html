@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <title>Frontend Mentor | Intro component with sign up form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <div class="left-section">
+        <h1>Stay Organized with </br> Job Applications</h1>
+        <p>Streamline your job application process with <span>a tracking tool</span> that helps you in every step from application to offer.
+            Easily keep tabs on roles, company details, and interview stages all in <span>one convenient place</span>.
+            Empower yourself with the structure needed to <span>land your dream job faster</span> and with less stress.</p>
+    </div>
+    <div class="right-section" >
+        <form id="signup-form" >
+            <span id="error-message" class="hidden"></span>
+            <input type="email" id="email" placeholder="Email Address" required>
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <input type="text" id="first-name" placeholder="First Name" required>
+            <input type="text" id="last-name" placeholder="Last Name" required>
+            <button type="submit" id="signup-btn">SIGN-UP</button>
+        </form>
+        <a class="toggle-link" onclick="toggleForm()">Don't have an account? Sign Up</a>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
