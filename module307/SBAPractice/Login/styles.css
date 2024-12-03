@@ -10,7 +10,7 @@ body {
     margin: 0;
     padding: 0;
     color: white;
-    background-color: hsl(180, 8%, 52%);
+    background-color: hsl(180, 29%, 50%);
 }
 
 .container {
@@ -116,7 +116,7 @@ input:focus, button:focus {
 }
 
 /* Phone Size: 375px */
-@media (max-width: 450px) {
+@media (max-width: 600px) {
     .container {
         flex-direction: column;
         width: 90%;
