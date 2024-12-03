@@ -6,7 +6,6 @@ function switchContent(button) {
     // Add active class to the clicked button
     if (button === "people") displayPeople();
     else if (button === "jobs") displayJobPostings();
-    else displayTasks();
 }
 
 const jobPostings = [

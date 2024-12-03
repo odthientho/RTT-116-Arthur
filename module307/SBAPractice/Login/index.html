@@ -2,32 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-    <title>Login Page</title>
+    <title>Login</title>
+    <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="container">
-    <div class="left-section">
-        <h1>Stay Organized with </br> Job Applications</h1>
-        <p>Streamline your job application process with <span>a tracking tool</span> that helps you in every step from application to offer.
-            Easily keep tabs on roles, company details, and interview stages all in <span>one convenient place</span>.
-            Empower yourself with the structure needed to <span>land your dream job faster</span> and with less stress.</p>
+    <div class="container">
+        <div class="login-box">
+            <img class="company-logo" src="./assets/eyecam-co.svg"/>
+            <div class="welcome" >Welcome <br> <span>Login in to continue Job Tracker</span></div>
+            <form class="input-form">
+                <div class="form-group">
+                    <input class="input" id="username" type="email" placeholder=" " required>
+                    <label for="username">Email Address*</label>
+                </div>
+                <div class="form-group">
+                    <input class="input" id="password" type="password" placeholder=" " required>
+                    <label for="password">Password*</label>
+                    <span class="password-eye" id="togglePassword">&#128065;</span>
+                </div>
+                <a href="#" class="forgot-password">Forgot password?</a>
+                <button class="submitBtn" type="submit">Continue</button>
+            </form>
+            <div class="signupBtn">Don't have an account? <a href="#">Sign Up</a> </div>
+            <div class="separator">
+                <span class="spanBefore"></span>
+                <span>OR</span>
+                <span class="spanAfter"></span>
+            </div>
+            <button class="googleBtn" type="submit">Continue with Google </button>
+            <button class="linkedinBtn" type="submit">Continue with LinkedIn</button>
+        </div>
     </div>
-    <div class="right-section" >
-        <form id="signup-form" >
-            <span id="error-message" class="hidden"></span>
-            <input type="email" id="email" placeholder="Email Address" required>
-            <input type="text" id="username" placeholder="Username" required>
-            <input type="password" id="password" placeholder="Password" required>
-            <input type="text" id="first-name" placeholder="First Name" required>
-            <input type="text" id="last-name" placeholder="Last Name" required>
-            <button type="submit" id="signup-btn">SIGN-UP</button>
-        </form>
-        <a class="toggle-link" onclick="toggleForm()">Don't have an account? Sign Up</a>
-    </div>
-</div>
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
