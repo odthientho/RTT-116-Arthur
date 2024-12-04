@@ -33,8 +33,9 @@ body {
 }
 
 .company-logo {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
+    border: 4px hsl(180, 29%, 50%) solid;
     border-radius: 50%;
     overflow: hidden;
 }
@@ -87,7 +88,7 @@ label {
 .input:not(:placeholder-shown) + label {
     top: -10px;
     font-size: 12px;
-    color: #007BFF;
+    color: hsl(180, 29%, 50%);
     background: white;
     padding: 0 5px;
 }
@@ -98,8 +99,9 @@ label {
     right: 10px;
     transform: translateY(-50%);
     cursor: pointer;
-    font-size: 20px;
-    color: #999;
+    font-size: 12px;
+    font-weight: bold;
+    color: hsl(180, 29%, 50%);
 }
 
 .forgot-password {
@@ -109,7 +111,7 @@ label {
     font-weight: bold;
     margin-left: 5px;
     margin-bottom: 15px;
-    color: #007BFF;
+    color: hsl(180, 29%, 50%);
     text-decoration: none;
 }
 
@@ -123,7 +125,7 @@ label {
     padding: 10px;
     font-size: 13px;
     color: #fff;
-    background-color: #007BFF;
+    background-color: hsl(180, 29%, 50%);
     border: none;
     border-radius: 3px;
     cursor: pointer;
@@ -131,7 +133,7 @@ label {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: hsl(180, 29%, 40%);
 }
 
 .signupBtn {
@@ -143,7 +145,7 @@ button:hover {
 
 .signupBtn a {
     font-weight: bold;
-    color: #007BFF;
+    color: hsl(180, 29%, 50%);
     text-decoration: none;
 }
 
@@ -182,8 +184,23 @@ button:hover {
     transition: background-color 0.3s;
     text-align: left;
     padding-left: 25px;
+
+    display: flex;
+    align-items: center;
+}
+
+.google-logo {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.linkedin-logo {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
 }
 
 .googleBtn:hover, .linkedinBtn:hover {
-    background-color: lightgrey;
+    background-color: #0001;
 }
