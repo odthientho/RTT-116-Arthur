@@ -6,12 +6,22 @@
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/84b1575519.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="container">
       <div class="left-section">
-          <button id="people" class="btn" onclick="switchContent('people')">People</button>
-          <button id="jobs" class="btn" onclick="switchContent('jobs')">Jobs</button>
+          <img src="./assets/company-logo/gin-logo.png">
+          <button id="people" class="btn peopleBtn" onclick="switchContent('people')">
+              <span class="fas fa-user-friends"></span>
+              <i>People</i>
+          </button>
+          <button id="newPeopleBtn" class="newBtn peopleBtn" href="#">+</button>
+          <button id="jobs" class="btn jobBtn" onclick="switchContent('jobs')">
+              <span class="far fa-address-card"></span>
+              <i>Jobs</i>
+          </button>
+          <button id="newJobBtn" class="newBtn jobBtn" href="#">+</button>
       </div>
       <ul id="right-section" class="right-section" >
           <!--- <li> This is to list all job postings </li> --->

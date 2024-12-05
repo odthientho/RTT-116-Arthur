@@ -33,9 +33,9 @@ body {
 }
 
 .company-logo {
-    width: 60px;
-    height: 60px;
-    border: 4px hsl(180, 29%, 50%) solid;
+    width: 90px;
+    height: 90px;
+    background-color: hsl(180, 29%, 50%);
     border-radius: 50%;
     overflow: hidden;
 }
@@ -187,18 +187,13 @@ button:hover {
 
     display: flex;
     align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
 }
 
-.google-logo {
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
-}
-
-.linkedin-logo {
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
+.googleBtn span, .linkedinBtn span {
+    font-size: 30px;
+    color: #777;
 }
 
 .googleBtn:hover, .linkedinBtn:hover {

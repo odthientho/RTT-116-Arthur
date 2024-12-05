@@ -4,8 +4,15 @@ function switchContent(button) {
     buttons.forEach(btn => btn.classList.remove('active'));
 
     // Add active class to the clicked button
-    if (button === "people") displayPeople();
-    else if (button === "jobs") displayJobPostings();
+    if (button === "people") {
+        displayPeople();
+        document.querySelector('#newPeopleBtn').style.display = 'block';
+        document.querySelector('#newJobBtn').style.display = 'none';
+    } else if (button === "jobs") {
+        displayJobPostings();
+        document.querySelector('#newPeopleBtn').style.display = 'none';
+        document.querySelector('#newJobBtn').style.display = 'block';
+    }
 }
 
 const jobPostings = [
@@ -184,6 +191,9 @@ const people = [
     }
 ];
 displayPeople();
+document.querySelector('#newPeopleBtn').style.display = 'block';
+document.querySelector('#newJobBtn').style.display = 'none';
+
 function displayPeople() {
     const peopleList = document.getElementById("right-section");
     document.getElementById("people").classList.add("active");

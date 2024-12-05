@@ -13,45 +13,69 @@ body {
 }
 
 .left-section {
-    flex: 0 0 200px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 50px;
+    flex: 0 0 250px;
+    background-color: hsl(180, 29%, 50%);
+}
+
+.left-section img {
+    position: fixed;
+    left: 25px;
+    width: 200px;
+    border-bottom: 2px #6666 solid;
 }
 
 .btn {
-    padding: 10px 20px;
-    margin-bottom: 10px;
-    color: white;
-    border: 1px transparent solid;
-    border-radius: 15px;
-    font-size: 16px;
+    font-size: 14px;
+    color: #666;
     cursor: pointer;
-    width: 75%;
+    border-radius: 8px;
+    border: 1px transparent solid;
     background-color: hsl(180, 29%, 50%);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2), 0 -3px 5px rgba(255, 255, 255, 0.3);
-    transition: all 0.3s ease;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    padding-left: 20px;
+
+    position: fixed;
+    left: 20px;
+    width: 200px;
+    height: 40px;
+}
+
+.newBtn {
+    position: fixed;
+    left: 192px;
+    height: 40px;
+    cursor: pointer;
+
+    text-decoration: none;
+    font-size: 25px;
+    border: none;
+    border-left: 2px hsl(180, 29%, 50%) solid;
+    border-radius: 0 8px 8px 0;
+    background-color: hsl(180, 29%, 45%);
+    color: white;
+}
+
+.peopleBtn {
+    top: 200px;
+}
+
+.jobBtn {
+    top: 250px;
 }
 
 .btn:hover {
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3), 0 -5px 7px rgba(255, 255, 255, 0.2); /* Enhanced shadow on hover */
-    transform: translateY(-2px); /* Lift the button slightly on hover */
     background-color: hsl(180, 29%, 40%);
+    color: white;
 }
 
 .btn.active {
     color: white;
-    background-color: hsl(180, 29%, 40%);
-    box-shadow: 5px 5px 10px hsl(180, 29%, 50%);
-    transform: translateX(5px);
-    transition: all 0.3s ease;
-}
-
-.btn.active:hover {
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3), 0 -5px 7px rgba(255, 255, 255, 0.2); /* Enhanced shadow on hover */
-    transform: translateY(-2px); /* Lift the button slightly on hover */
-    background-color: hsl(180, 29%, 40%);
+    background-color: hsl(180, 29%, 45%);
 }
 
 .right-section {
@@ -71,9 +95,14 @@ body {
     border-radius: 8px;
     margin-top: 10px;
     margin-bottom: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 
-    height: 120px;
-    width: 75%;
+    flex-grow: 1;
+    width: 65%;
+    max-width: 95%;
+    min-width: 50%;
+    transition: all 0.3s ease;
     background-color: white;
     box-shadow: 5px 10px 10px hsl(180, 15%, 70%);
     box-sizing: border-box;
@@ -81,8 +110,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 20px;
-    padding-bottom: 20px;
 }
 
 .job-item:hover {
@@ -121,7 +148,7 @@ body {
 .position-title {
     font-size: 25px;
     font-weight: bolder;
-    color: black;
+    color: #555;
 }
 
 .additional-info {
@@ -134,7 +161,7 @@ body {
 }
 
 .additional-info * {
-    padding-right: 10px; /* Add horizontal padding to each span */
+    padding-right: 10px;
 }
 
 .more-details {
@@ -147,21 +174,17 @@ body {
 }
 
 .more-details:hover {
-    color: hsl(180, 29%, 50%); /* Hover effect on the button */
+    color: hsl(180, 29%, 50%);
 }
 
-/* Media query for top-bottom layout */
-@media (max-width: 1100px) {
-    .container {
-        flex-direction: column; /* Switch to vertical layout */
+@media (max-width: 1600px) {
+    .job-item {
+        width: 75%;
     }
+}
 
-    .left-section, .right-section {
-        flex: 0 0 auto; /* Adjust height to fit content */
-        width: 100%; /* Full width for both sections */
-    }
-
-    .left-section {
-        height: 100px;
+@media (max-width: 1350px) {
+    .job-item {
+        width: 90%;
     }
 }
