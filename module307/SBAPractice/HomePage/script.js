@@ -1,21 +1,68 @@
-function switchContent(button) {
-    // Remove active class from all buttons
-    const buttons = document.querySelectorAll('.btn');
-    buttons.forEach(btn => btn.classList.remove('active'));
+const switchPeopleBtn = document.getElementById("switchPeopleBtn");
+const switchJobBtn = document.getElementById("switchJobBtn");
+const newPeopleBtn = document.getElementById("newPeopleBtn");
+const newJobBtn = document.getElementById("newJobBtn");
+const toggleBtn = document.getElementById("toggleBtn");
 
-    // Add active class to the clicked button
-    if (button === "people") {
-        displayPeople();
+toggleBtn.addEventListener('click', function() {
+    let left = document.getElementsByClassName('left-section').item(0);
+    if (left.style.display === "block") {
+        left.style.display = "none";
+        toggleBtn.classList.replace("fa-circle-arrow-left","fa-bars");
+    }
+    else {
+        left.style.display = "block";
+        toggleBtn.classList.replace("fa-bars", "fa-circle-arrow-left");
+    }
+});
+
+switchJobBtn.addEventListener('click', function() {
+    if (switchJobBtn.classList.contains("active")) {
+        // add a new toggling form appear to add new job posting.
+    } else {
+        switchPeopleBtn.classList.remove('active');
+        document.querySelector('#newJobBtn').style.display = 'block';
+        document.querySelector('#newPeopleBtn').style.display = 'none';
+        displayJobPostings();
+    }
+});
+
+switchPeopleBtn.addEventListener('click', function() {
+    if (switchPeopleBtn.classList.contains("active")) {
+        // add a new toggling form appear to add new job posting.
+    } else {
+        switchJobBtn.classList.remove('active');
         document.querySelector('#newPeopleBtn').style.display = 'block';
         document.querySelector('#newJobBtn').style.display = 'none';
-    } else if (button === "jobs") {
-        displayJobPostings();
-        document.querySelector('#newPeopleBtn').style.display = 'none';
-        document.querySelector('#newJobBtn').style.display = 'block';
+        displayPeople();
     }
-}
+});
 
-const jobPostings = [
+switchPeopleBtn.addEventListener('mouseover', function() {
+    if (switchPeopleBtn.classList.contains("active")) {
+        newPeopleBtn.style.backgroundColor = "hsl(180, 29%, 40%)";
+    }
+});
+
+switchPeopleBtn.addEventListener('mouseout', function() {
+    if (switchPeopleBtn.classList.contains("active")) {
+        newPeopleBtn.style.backgroundColor = "hsl(180, 29%, 45%)";
+    }
+});
+
+switchJobBtn.addEventListener('mouseover', function() {
+    if (switchJobBtn.classList.contains("active")) {
+        newJobBtn.style.backgroundColor = "hsl(180, 29%, 40%)";
+    }
+});
+
+switchJobBtn.addEventListener('mouseout', function() {
+    if (switchJobBtn.classList.contains("active")) {
+        newJobBtn.style.backgroundColor = "hsl(180, 29%, 45%)";
+    }
+});
+
+const jobsData = [
     {
         companyLogo: "./assets/company-logo/amazon.png",
         companyName: "Amazon",
@@ -92,9 +139,9 @@ const jobPostings = [
 // displayJobPostings();
 function displayJobPostings() {
     const jobList = document.getElementById("right-section"); // Get the container
-    document.getElementById("jobs").classList.add("active");
+    document.getElementById("switchJobBtn").classList.add("active");
     jobList.innerHTML = '';
-    jobPostings.forEach(job => {
+    jobsData.forEach(job => {
         const jobItem = document.createElement("li");
         jobItem.classList.add("job-item");
 
@@ -124,7 +171,7 @@ function displayJobPostings() {
     });
 }
 
-const people = [
+const peopleData = [
     {
         name: "John Smith",
         photo: "./assets/photos/john-smith.jpg",
@@ -196,9 +243,9 @@ document.querySelector('#newJobBtn').style.display = 'none';
 
 function displayPeople() {
     const peopleList = document.getElementById("right-section");
-    document.getElementById("people").classList.add("active");
+    document.getElementById("switchPeopleBtn").classList.add("active");
     peopleList.innerHTML = '';
-    people.forEach(person => {
+    peopleData.forEach(person => {
         const item = document.createElement("li");
         item.classList.add("job-item");
 

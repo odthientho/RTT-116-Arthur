@@ -17,6 +17,18 @@ body {
     background-color: hsl(180, 29%, 50%);
 }
 
+#toggleBtn {
+    position: fixed;
+    cursor: pointer;
+    top: 15px;
+    left: 15px;
+    padding: 8px;
+    z-index: 2;
+    font-size: 20px;
+    border-radius: 5px;
+    background-color: hsl(180, 29%, 50%);
+}
+
 .left-section img {
     position: fixed;
     left: 25px;
@@ -76,6 +88,10 @@ body {
 .btn.active {
     color: white;
     background-color: hsl(180, 29%, 45%);
+}
+
+.btn.active:hover {
+    border: 1px hsl(180, 29%, 40%) solid;
 }
 
 .right-section {
@@ -186,5 +202,23 @@ body {
 @media (max-width: 1350px) {
     .job-item {
         width: 90%;
+    }
+}
+
+@media (max-width: 1200px) {
+    #toggleBtn {
+        display: block;
+    }
+
+    .left-section {
+        display: none;
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        width: 250px;
+        height: 400px;
+        background-color: hsl(180, 29%, 50%);
+        border-radius: 10px;
+        z-index: 1;
     }
 }
