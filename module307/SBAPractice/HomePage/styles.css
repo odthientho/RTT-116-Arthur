@@ -174,9 +174,10 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    align-items: center;
 }
 
-.additional-info * {
+.additional-info > * {
     padding-right: 10px;
 }
 
@@ -189,7 +190,12 @@ body {
     color: #333;
 }
 
-.more-details:hover {
+a {
+    text-decoration: none;
+    color: hsl(180, 8%, 52%);
+}
+
+a:hover {
     color: hsl(180, 29%, 50%);
 }
 

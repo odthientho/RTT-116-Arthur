@@ -103,19 +103,14 @@ label {
     color: hsl(180, 29%, 50%);
 }
 
-.forgot-password {
-    display: block;
+.login-alert {
+    display: none;
     text-align: left;
-    font-size: 13px;
-    font-weight: bold;
+    font-size: 12px;
     margin-left: 5px;
     margin-bottom: 15px;
-    color: hsl(180, 29%, 50%);
+    color: rgb(247, 95, 95);
     text-decoration: none;
-}
-
-.forgot-password:hover {
-    text-decoration: underline;
 }
 
 .submitBtn {

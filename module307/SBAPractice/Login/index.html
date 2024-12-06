@@ -13,18 +13,19 @@
         <div class="login-box">
             <img class="company-logo" src="assets/gin-logo.png"/>
             <div class="welcome" >Welcome <br> <span>Login in to continue Job Tracker</span></div>
-            <form class="input-form">
+            <form id="login-form" class="input-form">
                 <div class="form-group">
-                    <input class="input" id="username" type="email" placeholder=" " required>
-                    <label for="username">Email Address*</label>
+                    <input class="input" id="email-input" placeholder=" ">
+                    <label id="email-label" class="username">Email Address*</label>
                 </div>
+                <span id="email-login-alert" class="login-alert"></span>
                 <div class="form-group">
-                    <input class="input" id="password" type="password" placeholder=" " required>
-                    <label for="password">Password*</label>
+                    <input class="input" id="password-input" type="password" placeholder=" ">
+                    <label  id="password-label" class="password">Password*</label>
                     <span class="password-eye" id="togglePassword">show</span>
                 </div>
-                <a href="#" class="forgot-password">Forgot password?</a>
-                <button class="submitBtn" type="submit">Continue</button>
+                <span id="password-login-alert" class="login-alert"></span>
+                <button class="submitBtn" type="submit">Continue to login</button>
             </form>
             <div class="signupBtn">Don't have an account? <a href="#">Sign Up</a> </div>
             <div class="separator">

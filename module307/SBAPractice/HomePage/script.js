@@ -257,12 +257,14 @@ function displayPeople() {
                 <li class="company-name">${person.typeOfRelationship}</li>
                 <li class="position-title">${person.name}</li>
                 <li class="additional-info">
-                    <span class="date-created">${person.phone}</span>
+                    <a class="email" href="${person.phone}">${person.phone}</a>
                     <span>•</span>
-                    <span class="role-type">${person.email}</span>
+                    <a class="email" href="${person.email}">
+                        <span class="fa-solid fa-envelope"></span>/${person.email.split('@')[0]}
+                    </a>
                     <span>•</span>
-                    <a class="location" href="${person.linkedin}">
-                        LinkedIn/${person.linkedin.split('/').pop()}
+                    <a class="linkedin" href="${person.linkedin}">
+                        <span class="fa-brands fa-linkedin"></span>/${person.linkedin.split('/').pop()}
                     </a>
                 </li>
             </ul>
