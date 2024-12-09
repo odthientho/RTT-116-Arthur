@@ -103,7 +103,7 @@ body {
     align-items: center;
     overflow-y: auto;
     margin-top: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .job-item {
@@ -133,8 +133,8 @@ body {
 }
 
 .company-logo {
-    width: 85px;
-    height: 85px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     overflow: hidden; /* Ensures anything outside the circle is hidden */
     margin-left: 50px;

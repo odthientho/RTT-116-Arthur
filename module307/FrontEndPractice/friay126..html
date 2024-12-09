@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homeworks for 12/6</title>
+</head>
+<body>
+<button id="btn1">Button 1</button>
+<span id="numOfClicked1"></span>
+<button id="btn2">Button 1</button>
+<span id="numOfClicked2"></span>
+<button id="anotherBtn">Button 1</button>
+<div id="extraSpace"></div>
+  <script>
+    const btn1 = document.getElementById("btn1");
+    const spanClick1 = document.getElementById('numOfClicked1');
+
+    const btn2 = document.getElementById("btn2");
+    const spanClick2 = document.getElementById('numOfClicked2');
+
+    var num1 = 0;
+    btn1.addEventListener('click', ()=> {
+      num1++;
+      spanClick1.innerHTML = num1;
+    });
+
+
+    var num2 = 0;
+    btn2.addEventListener('click', ()=> {
+      num2++;
+      spanClick2.innerHTML = num2;
+    });
+
+
+    const anotherBtn = document.getElementById("anotherBtn");
+    var addedBtnNum = 0;
+    anotherBtn.addEventListener('click', ()=> {
+      var extraSpace = document.getElementById('extraSpace');
+      addedBtnNum++;
+
+      var btnAdded = document.createElement('button');
+      btnAdded.textContent = "Click Me";
+      btnAdded.id = "btnAdded"+addedBtnNum;
+      extraSpace.appendChild(btnAdded);
+
+      var spanAdded = document.createElement('span');
+      spanAdded.id = "spanAdded"+addedBtnNum;
+      spanAdded.innerHTML = '0';
+      extraSpace.appendChild(spanAdded);
+
+      btnAdded.addEventListener('click', (event) => {
+        var clickedBtn = event.target;
+        var nameBtn = clickedBtn.id;
+        var nameSpan = "spanAdded"+nameBtn.charAt(nameBtn.length-1);
+        var aSpan = document.getElementById(nameSpan);
+        var num = aSpan.textContent.toString();
+        aSpan.innerHTML = parseInt(num)+1;
+      });
+
+    });
+
+  </script>
+</body>
+</html>
