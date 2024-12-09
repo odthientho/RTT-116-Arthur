@@ -15,7 +15,7 @@ const emailLoginAlert = document.getElementById("email-login-alert");
 const passwordLoginAlert = document.getElementById("password-login-alert");
 
 loginForm.addEventListener('submit', function(event) {
-    event.preventDefault();
+   event.preventDefault();
 
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
    if (emailRegex.test(email.value.trim())) {

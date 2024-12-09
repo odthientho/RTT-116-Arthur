@@ -22,3 +22,12 @@ function getCount(objects) {
 }
 
 console.log(getCount([{x:1, y:1}, {x:2, y:1}, {x:3, y:3}, {x:4, y:3}, {x:1, y:5}]))
+
+let arr = [1, 2, 3, 4, 5, ];
+arr.forEach(function(value, index, array) {
+    array[index] = value * value;
+});
+console.log(arr.reverse().filter(function(x) {
+    return x % 5;
+}));
+
