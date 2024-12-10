@@ -1,12 +1,65 @@
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'League Spartan', sans-serif; /* Apply the imported font */
+    display: flex;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: hsl(180, 52%, 96%);
+    min-height: 100vh;
+    width: 100%;
+}
+
+.left-section {
+    flex: 0 0 250px;
+    background-color: hsl(180, 29%, 50%);
+}
+
+#toggleBtn {
+    position: fixed;
+    cursor: pointer;
+    top: 15px;
+    left: 15px;
+    padding: 8px;
+    z-index: 2;
+    font-size: 20px;
+    border-radius: 5px;
+    background-color: hsl(180, 29%, 50%);
+}
+
+.left-section img {
+    position: fixed;
+    left: 25px;
+    width: 200px;
+    border-bottom: 2px #6666 solid;
+}
+
+#todo-search-input {
+    position: relative;
+    top: 200px;
+    left: 20px;
+    font-size: 16px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px #999999 solid;
+}
+
+#todo-search-input:focus {
+    border: 1px #999999 solid;
 }
 
 #todo-container {
-    position: relative;
-    top: 50px;
-    left: 50px;
-    width: 80%;
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y: auto;
+    margin-top: 40px;
+    margin-bottom: 20px;
 }
 
 table {
@@ -32,8 +85,9 @@ th.sort-desc::after {
 }
 
 tr.finished {
-    background-color: #f0f0f0; /* Lighter color for finished tasks */
+    color: #999999;
 }
+
 tr.finished td {
     text-decoration: line-through; /* Strikethrough for finished tasks */
 }
@@ -77,12 +131,13 @@ input[type="checkbox"] {
     display: block;
 }
 
-
 .button-group {
     margin-top: 20px;
 }
+
 .button-group button {
     margin-right: 10px;
     padding: 10px 20px;
     cursor: pointer;
 }
+

@@ -9,48 +9,46 @@
     <script src="https://kit.fontawesome.com/84b1575519.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div id="todo-container">
-        <form id="todo-search-form" onsubmit="return false;">
+    <div class="container">
+        <span id="toggleBtn" class="fa-solid fa-bars"></span>
+        <div class="left-section">
+            <img src="./assets/company-logo/gin-logo.png">
             <input id="todo-search-input" type="text" placeholder="Search tasks...">
-
-
-            <!-- Add Task Button -->
-            <button id="add-task-btn">Add Task</button>
-        </form>
-        <table>
-            <thead>
-                <tr>
-                    <th>Finished</th>
-                    <th id="due-date-header" class="sort-asc">Due Date</th>
-                    <th>Title</th>
-                    <th>Details</th>
-                </tr>
-            </thead>
-            <tbody id="todo-table-body">
-            </tbody>
-        </table>
-
-        <!-- Buttons to filter tasks -->
-        <div class="button-group">
-            <button id="show-all-btn">All Tasks</button>
-            <button id="show-active-btn">Active Tasks</button>
-            <button id="show-completed-btn">Completed Tasks</button>
         </div>
-    </div>
-    <!-- Modal -->
-    <div class="modal-overlay" id="modal-overlay"></div>
-    <div class="modal" id="add-task-modal">
-        <h2>Add New Task</h2>
-        <form id="add-task-form">
-            <label for="task-title">Title:</label>
-            <input type="text" id="task-title" required><br><br>
-            <label for="task-due-date">Due Date:</label>
-            <input type="date" id="task-due-date" required><br><br>
-            <label for="task-details">Details:</label>
-            <textarea id="task-details" rows="4" required></textarea><br><br>
-            <button type="submit">Save Task</button>
-            <button type="button" id="close-modal-btn">Cancel</button>
-        </form>
+        <div id="todo-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Finished</th>
+                        <th id="due-date-header" class="sort-asc">Due Date</th>
+                        <th>Title</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody id="todo-table-body">
+                </tbody>
+            </table>
+            <div class="button-group">
+                <button id="add-task-btn">Add Task</button>
+                <button id="show-all-btn">All Tasks</button>
+                <button id="show-active-btn">Active Tasks</button>
+                <button id="show-completed-btn">Completed Tasks</button>
+            </div>
+        </div>
+        <div class="modal-overlay" id="modal-overlay"></div>
+        <div class="modal" id="add-task-modal">
+            <h2>Add New Task</h2>
+            <form id="add-task-form">
+                <label for="task-title">Title:</label>
+                <input type="text" id="task-title" required><br><br>
+                <label for="task-due-date">Due Date:</label>
+                <input type="date" id="task-due-date" required><br><br>
+                <label for="task-details">Details:</label>
+                <textarea id="task-details" rows="4" required></textarea><br><br>
+                <button type="submit">Save Task</button>
+                <button type="button" id="close-modal-btn">Cancel</button>
+            </form>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
