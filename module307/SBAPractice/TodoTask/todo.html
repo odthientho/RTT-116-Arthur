@@ -10,12 +10,35 @@
 </head>
 <body>
     <div class="container">
-        <span id="toggleBtn" class="fa-solid fa-bars"></span>
         <div class="left-section">
             <img src="./assets/company-logo/gin-logo.png">
             <input id="todo-search-input" type="text" placeholder="Search tasks...">
+            <button id="add-task-btn" class="">
+                <span class="fas fa-tasks"></span>
+                <i>Tasks</i>
+                <i class="add-task">+</i>
+            </button>
         </div>
         <div id="todo-container">
+<!--            <div class="button-group">-->
+<!--                <button id="show-all-btn">All Tasks</button>-->
+<!--                <button id="show-active-btn">Active Tasks</button>-->
+<!--                <button id="show-completed-btn">Completed Tasks</button>-->
+<!--            </div>-->
+            <div class="radio-group">
+                <label class="radio-item">
+                    <input type="radio" id="show-all-btn"  name="filter" value="all" checked>
+                    All Tasks
+                </label>
+                <label class="radio-item">
+                    <input type="radio" id="show-active-btn" name="filter" value="active" >
+                    Active Tasks
+                </label>
+                <label class="radio-item">
+                    <input type="radio" id="show-completed-btn" name="filter" value="completed" >
+                    Completed Tasks
+                </label>
+            </div>
             <table>
                 <thead>
                     <tr>
@@ -28,25 +51,27 @@
                 <tbody id="todo-table-body">
                 </tbody>
             </table>
-            <div class="button-group">
-                <button id="add-task-btn">Add Task</button>
-                <button id="show-all-btn">All Tasks</button>
-                <button id="show-active-btn">Active Tasks</button>
-                <button id="show-completed-btn">Completed Tasks</button>
-            </div>
         </div>
         <div class="modal-overlay" id="modal-overlay"></div>
         <div class="modal" id="add-task-modal">
             <h2>Add New Task</h2>
             <form id="add-task-form">
-                <label for="task-title">Title:</label>
-                <input type="text" id="task-title" required><br><br>
-                <label for="task-due-date">Due Date:</label>
-                <input type="date" id="task-due-date" required><br><br>
-                <label for="task-details">Details:</label>
-                <textarea id="task-details" rows="4" required></textarea><br><br>
-                <button type="submit">Save Task</button>
-                <button type="button" id="close-modal-btn">Cancel</button>
+                <div class="title-modal">
+                    <label for="task-title">Title:</label>
+                    <input type="text" id="task-title" required>
+                </div>
+                <div class="duedate-modal">
+                    <label for="task-due-date">Due Date:</label>
+                    <input type="date" id="task-due-date" required>
+                </div>
+                <div class="details-modal">
+                    <label for="task-details">Details:</label><br>
+                    <textarea id="task-details" rows="4" required></textarea>
+                </div>
+                <div class="button-modal">
+                    <button type="submit">Save Task</button>
+                    <button type="button" id="close-modal-btn">Cancel</button>
+                </div>
             </form>
         </div>
     </div>

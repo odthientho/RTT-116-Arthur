@@ -27,6 +27,8 @@ const dueDateHeader = document.getElementById('due-date-header');
 let sortAscending = true;
 
 
+// Initialize the table with all tasks
+populateTable(jobTodoList);
 function populateTable(data) {
     tableBody.innerHTML = "";
     data.forEach((task, index) => {
@@ -56,9 +58,6 @@ tableBody.addEventListener('click', function(event) {
         populateTable(jobTodoList);
     }
 });
-
-// Initialize the table with all tasks
-populateTable(jobTodoList);
 
 searchInput.addEventListener('input', () => {
     const keyword = searchInput.value.toLowerCase();
@@ -117,17 +116,17 @@ dueDateHeader.addEventListener('click', () => {
     dueDateHeader.classList.toggle('sort-desc', !sortAscending);
 });
 
-const showAllBtn = document.getElementById('show-all-btn');
-const showActiveBtn = document.getElementById('show-active-btn');
-const showCompletedBtn = document.getElementById('show-completed-btn');
+const radioButtons = document.querySelectorAll('input[name="filter"]');
 
-// Event listeners for the filter buttons
-showAllBtn.addEventListener('click', () => filterTasks('all'));
-showActiveBtn.addEventListener('click', () => filterTasks('active'));
-showCompletedBtn.addEventListener('click', () => filterTasks('completed'));
+// Add event listeners to radio buttons
+radioButtons.forEach(radio => {
+    radio.addEventListener('change', (event) => {
+        filterTasks(event.target.value);
+    });
+});
+
 // Filter the data based on selected view
 function filterTasks(filter) {
-    let filteredData = jobTodoList;
     if (filter === 'all') {
         filteredData = jobTodoList;
     } else if (filter === 'active') {

@@ -17,18 +17,6 @@ body {
     background-color: hsl(180, 29%, 50%);
 }
 
-#toggleBtn {
-    position: fixed;
-    cursor: pointer;
-    top: 15px;
-    left: 15px;
-    padding: 8px;
-    z-index: 2;
-    font-size: 20px;
-    border-radius: 5px;
-    background-color: hsl(180, 29%, 50%);
-}
-
 .left-section img {
     position: fixed;
     left: 25px;
@@ -37,12 +25,14 @@ body {
 }
 
 #todo-search-input {
-    position: relative;
-    top: 200px;
+    position: fixed;
     left: 20px;
-    font-size: 16px;
-    padding: 8px;
-    border-radius: 5px;
+    width: 180px;
+    height: 20px;
+    top: 200px;
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 8px;
     border: 1px #999999 solid;
 }
 
@@ -52,29 +42,27 @@ body {
 
 #todo-container {
     flex: 1;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    overflow-y: auto;
-    margin-top: 40px;
-    margin-bottom: 20px;
+    text-align: center;
+    justify-items: center;
 }
 
 table {
-    border-collapse: collapse;
     margin: 20px 0;
+    width: 90%;
 }
 
 th, td {
-    border: 1px solid black;
-    padding: 8px;
+    border: 1px #999999 solid;
+    padding: 10px;
     text-align: left;
 }
 
 th {
-    background-color: #f2f2f2;
+    background-color: hsl(180, 29%, 50%);
+    font-weight: bold;
+    font-size: 18px;
+    color: #555;
+    text-align: center;
 }
 
 th.sort-asc::after {
@@ -82,6 +70,12 @@ th.sort-asc::after {
 }
 th.sort-desc::after {
     content: " ▼";
+}
+th.sort-asc:hover{
+    cursor: pointer;
+}
+th.sort-desc:hover {
+    cursor: pointer;
 }
 
 tr.finished {
@@ -94,10 +88,11 @@ tr.finished td {
 
 td.finished-cell {
     cursor: pointer;
-    color: #007BFF;
+    color: hsl(180, 29%, 50%);
+    text-align: center;
 }
-input[type="checkbox"] {
-    cursor: pointer;
+input[type="radio"] {
+    margin-right: 5px;
 }
 
 .modal {
@@ -105,11 +100,22 @@ input[type="checkbox"] {
     position: fixed;
     top: 50%;
     left: 50%;
+    width: 30%;
     transform: translate(-50%, -50%);
     background: white;
-    padding: 20px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     z-index: 1000;
+    border-radius: 10px;
+}
+
+.modal h2 {
+    font-size: 30px;
+    text-align: center;
+    color: white;
+    background-color: hsl(180, 29%, 50%);
+    padding: 20px 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .modal.show {
@@ -122,7 +128,7 @@ input[type="checkbox"] {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.6);
     z-index: 999;
     display: none;
 }
@@ -131,13 +137,101 @@ input[type="checkbox"] {
     display: block;
 }
 
-.button-group {
-    margin-top: 20px;
+#add-task-form {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
 }
 
-.button-group button {
+#add-task-form * {
+    width: 280px;
+}
+
+#add-task-form label {
+    font-size: 20px;
+}
+
+#add-task-form input {
+    font-size: 15px;
+    height: 30px;
+    border: 1px black solid;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#add-task-form textarea {
+    font-size: 15px;
+    border: 1px black solid;
+    border-radius: 5px;
+    padding: 5px;
+    resize: none;
+}
+
+#add-task-form .button-modal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#add-task-form .button-modal button {
     margin-right: 10px;
+    border-radius: 5px;
+    border: 1px #777777 solid;
     padding: 10px 20px;
     cursor: pointer;
+    background-color: hsl(180, 29%, 45%);
+    font-size: 14px;
+    color: white;
 }
 
+#add-task-form .button-modal button:hover {
+    border: 1px hsl(180, 29%, 40%) solid;
+    background-color: hsl(180, 29%, 40%);
+}
+
+.radio-group {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+#add-task-btn {
+    top: 250px;
+    font-size: 14px;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 1px transparent solid;
+    background-color: hsl(180, 29%, 45%);
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    padding-left: 20px;
+
+    position: fixed;
+    left: 20px;
+    width: 200px;
+    height: 40px;
+}
+
+.add-task {
+    flex: 1;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+}
+
+#add-task-btn:hover {
+    border: 1px hsl(180, 29%, 40%) solid;
+    background-color: hsl(180, 29%, 40%);
+}
