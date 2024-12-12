@@ -11,6 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
+@ToString
 public class Customer {
 
     @Id
@@ -63,20 +64,4 @@ public class Customer {
     @ToString.Exclude
     private List<Order> orders;
 
-    @Override
-    public String toString() {
-        return "Customer{" +
-                "customerName='" + customerName + '\'' +
-                ", contactFirstname='" + contactFirstname + '\'' +
-                ", contactLastname='" + contactLastname + '\'' +
-                ", phone='" + phone + '\'' +
-                ", addressLine1='" + addressLine1 + '\'' +
-                ", addressLine2='" + addressLine2 + '\'' +
-                ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
-                ", postalCode='" + postalCode + '\'' +
-                ", country='" + country + '\'' +
-                ", creditLimit=" + creditLimit +
-                '}';
-    }
 }
