@@ -31,16 +31,17 @@
       </div>
     </form>
   </div>
-  <c:if test="${search != null}">
+  <c:if test="${not empty search}">
     <section>
       <div class="container">
         <h2 class="text-center ">Customers Found (${customers.size()})</h2>
         <table class="table mt-5">
           <tr>
-            <td>Contact First Name</td>
-            <td>Contact Last Name</td>
-            <td>id</td>
-            <td>Customer Name</td>
+            <th>Contact First Name</th>
+            <th>Contact Last Name</th>
+            <th>id</th>
+            <th>Customer Name</th>
+            <th>Edit</th>
           </tr>
           <c:forEach var="customer" items="${customers}" >
             <tr>
@@ -48,6 +49,7 @@
               <td>${customer.contactLastname}</td>
               <td>${customer.id}</td>
               <td>${customer.customerName}</td>
+              <td><a href="customer/edit/${customer.id}">Edit</a></td>
             </tr>
           </c:forEach>
         </table>
