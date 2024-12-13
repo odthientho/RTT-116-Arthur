@@ -17,7 +17,7 @@ public class IndexController {
     @Autowired
     private CustomerDAO customerDAO;
 
-    @GetMapping("/")
+    @GetMapping("/index")
     public ModelAndView index() {
         ModelAndView response = new ModelAndView();
 
