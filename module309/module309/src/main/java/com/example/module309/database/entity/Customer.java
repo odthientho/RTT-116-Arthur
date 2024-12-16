@@ -6,12 +6,12 @@ import lombok.*;
 import java.util.List;
 
 @Entity
-@Table(name = "customers")
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
 @ToString
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "customers")
 public class Customer {
 
     @Id
@@ -49,8 +49,8 @@ public class Customer {
     @Column(name = "country", length = 50)
     private String country;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "sales_rep_employee_id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "sales_rep_employee_id")
     @ToString.Exclude
     private Employee repEmployee;
 

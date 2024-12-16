@@ -47,10 +47,6 @@
             <input type="text" class="form-control" id="country" name="country">
           </div>
           <div class="mb-3">
-            <label for="salesRepEmployeeId" class="form-label">Sale Rep Employee Id</label>
-            <input type="text" class="form-control" id="salesRepEmployeeId" name="salesRepEmployeeId">
-          </div>
-          <div class="mb-3">
             <label for="creditLimit" class="form-label">Credit Limit</label>
             <input type="text" class="form-control" id="creditLimit" name="creditLimit">
           </div>
