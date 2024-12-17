@@ -13,24 +13,31 @@ body {
 .nav {
     background-color: var(--white-color);
     border-bottom: 1px solid rgb(140 140 140/.2);
-    height: var(--nav-height);
     position: fixed;
-    width: 100vw;
     top: 0;
     left: 0;
     z-index: 1000;
 
+    height: var(--nav-height);
+    width: 100vw;
+
     display: flex;
+    align-items: center;
 }
 
 .header-nav {
+    display: flex;
     justify-content: flex-start;
-    padding: 5px 5px 5px 20%;
+    align-items: center;
+    padding-left: 20%;
+    height: 70%;
+    gap: 10px;
 }
 
 .logo-nav {
+    display: block;
+    position: relative;
     height: 100%;
-    width: 100%;
 }
 
 .img-fit-container {
@@ -38,4 +45,40 @@ body {
     width: 100%;
     object-fit: contain;
     border-radius: 3px;
+}
+
+.search-nav {
+    display: block;
+    position: relative;
+    height: 100%;
+    margin: 0;
+}
+
+.search-nav input {
+    padding-left: 50px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    height: 100%;
+    background-color: #edf3f8;
+}
+
+.search-nav input:focus {
+    font-size: 16px;
+    border: none;
+}
+
+.search-nav div {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 15px;
+    font-size: 14px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.global-nav {
+
 }

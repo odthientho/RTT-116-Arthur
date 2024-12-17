@@ -3,9 +3,13 @@ package com.example.module309.controller;
 import com.example.module309.database.dao.CustomerDAO;
 import com.example.module309.database.entity.Customer;
 import com.example.module309.form.CreateCustomerFormBean;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -31,6 +35,30 @@ public class CustomerController {
         return response;
     }
 
+    @GetMapping("/edit/{customerId}")
+    public ModelAndView edit(@PathVariable Integer customerId) {
+        ModelAndView response = new ModelAndView();
+        response.setViewName("customer/create");
+        Customer customer = customerDAO.findById(customerId);
+
+        CreateCustomerFormBean form = new CreateCustomerFormBean();
+        form.setId(customerId);
+        form.setCustomerName(customer.getCustomerName());
+        form.setContactFirstname(customer.getContactFirstname());
+        form.setContactLastname(customer.getContactLastname());
+        form.setPhone(customer.getPhone());
+        form.setAddressLine1(customer.getAddressLine1());
+        form.setAddressLine2(customer.getAddressLine2());
+        form.setCity(customer.getCity());
+        form.setState(customer.getState());
+        form.setPostalCode(customer.getPostalCode());
+        form.setCountry(customer.getCountry());
+        form.setCreditLimit(customer.getCreditLimit());
+        response.addObject("form", form);
+
+        return response;
+    }
+
     @GetMapping("/create")
     public ModelAndView create() {
         ModelAndView response = new ModelAndView();
@@ -38,9 +66,20 @@ public class CustomerController {
         return response;
     }
 
-    @PostMapping("/create")
-    public String create(CreateCustomerFormBean form) {
+    @PostMapping("/createOrUpdate")
+    public String createOrUpdate(@Valid @ModelAttribute("form") CreateCustomerFormBean form, BindingResult bindingResult, Model model) {
+        log.debug(form.toString());
+
+        if (bindingResult.hasErrors()) {
+            for (ObjectError error : bindingResult.getAllErrors()) {
+                log.error(error.getDefaultMessage());
+            }
+            model.addAttribute("errors", bindingResult);
+            return "customer/create";
+        }
+
         Customer customer = new Customer();
+        if (form.getId() != null) customer.setId(form.getId());
         customer.setCustomerName(form.getCustomerName());
         customer.setContactFirstname(form.getContactFirstname());
         customer.setContactLastname(form.getContactLastname());

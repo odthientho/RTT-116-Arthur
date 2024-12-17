@@ -1,6 +1,8 @@
 package com.example.module309.form;
 
+import jakarta.validation.constraints.Size;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -10,6 +12,10 @@ import lombok.ToString;
 @ToString
 public class CreateCustomerFormBean {
 
+    private Integer id;
+
+    @Pattern(regexp = "[A-Za-z0-9\\s]+", message = "Customer name must contain only letters, numbers and spaces.")
+    @Size(max = 50, message = "Customer name must be less than 50 characters")
     @NotEmpty(message = "Customer name is required.")
     private String customerName;
 
@@ -37,6 +43,6 @@ public class CreateCustomerFormBean {
     @NotEmpty(message = "Country is required.")
     private String country;
 
-    private String creditLimit;
+    private Double creditLimit;
 
 }

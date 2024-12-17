@@ -37,7 +37,7 @@
               <td>${customer.contactLastname}</td>
               <td>${customer.id}</td>
               <td>${customer.customerName}</td>
-              <td><a href="customer/edit/${customer.id}">Edit</a></td>
+              <td><a href="/customer/edit/${customer.id}">Edit</a></td>
             </tr>
           </c:forEach>
         </table>
