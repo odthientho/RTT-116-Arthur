@@ -1,0 +1,41 @@
+:root {
+    --nav-height: 53px;
+    --white-color: #FFF;
+    --body-color: hsl(180, 52%, 96%);
+    --primary-color: ;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--body-color);
+}
+
+.nav {
+    background-color: var(--white-color);
+    border-bottom: 1px solid rgb(140 140 140/.2);
+    height: var(--nav-height);
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    display: flex;
+}
+
+.header-nav {
+    justify-content: flex-start;
+    padding: 5px 5px 5px 20%;
+}
+
+.logo-nav {
+    height: 100%;
+    width: 100%;
+}
+
+.img-fit-container {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    border-radius: 3px;
+}
