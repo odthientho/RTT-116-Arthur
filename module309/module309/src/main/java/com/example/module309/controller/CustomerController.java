@@ -67,32 +67,32 @@ public class CustomerController {
     }
 
     @PostMapping("/createOrUpdate")
-    public String createOrUpdate(@Valid @ModelAttribute("form") CreateCustomerFormBean form, BindingResult bindingResult, Model model) {
-        log.debug(form.toString());
-
+    public ModelAndView createOrUpdate(@Valid CreateCustomerFormBean form, BindingResult bindingResult) {
+        ModelAndView response = new ModelAndView();
         if (bindingResult.hasErrors()) {
             for (ObjectError error : bindingResult.getAllErrors()) {
                 log.error(error.getDefaultMessage());
             }
-            model.addAttribute("errors", bindingResult);
-            return "/customer/create";
+            response.setViewName("customer/create");
+            response.addObject("form", form);
+            response.addObject("errors", bindingResult);
+        } else {
+            Customer customer = new Customer();
+            if (form.getId() != null) customer.setId(form.getId());
+            customer.setCustomerName(form.getCustomerName());
+            customer.setContactFirstname(form.getContactFirstname());
+            customer.setContactLastname(form.getContactLastname());
+            customer.setPhone(form.getPhone());
+            customer.setAddressLine1(form.getAddressLine1());
+            customer.setAddressLine2(form.getAddressLine2());
+            customer.setCity(form.getCity());
+            customer.setState(form.getState());
+            customer.setPostalCode(form.getPostalCode());
+            customer.setCountry(form.getCountry());
+            customer.setCreditLimit(customer.getCreditLimit());
+            customerDAO.save(customer);
+            response.setViewName("customer/search");
         }
-
-        Customer customer = new Customer();
-        if (form.getId() != null) customer.setId(form.getId());
-        customer.setCustomerName(form.getCustomerName());
-        customer.setContactFirstname(form.getContactFirstname());
-        customer.setContactLastname(form.getContactLastname());
-        customer.setPhone(form.getPhone());
-        customer.setAddressLine1(form.getAddressLine1());
-        customer.setAddressLine2(form.getAddressLine2());
-        customer.setCity(form.getCity());
-        customer.setState(form.getState());
-        customer.setPostalCode(form.getPostalCode());
-        customer.setCountry(form.getCountry());
-        customer.setCreditLimit(customer.getCreditLimit());
-        customerDAO.save(customer);
-
-        return "redirect:/customer/search";
+        return response;
     }
 }
