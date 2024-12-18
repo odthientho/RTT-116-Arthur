@@ -75,7 +75,7 @@ public class CustomerController {
                 log.error(error.getDefaultMessage());
             }
             model.addAttribute("errors", bindingResult);
-            return "customer/create";
+            return "/customer/create";
         }
 
         Customer customer = new Customer();

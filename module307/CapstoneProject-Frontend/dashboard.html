@@ -21,14 +21,28 @@
                 </div>
             </div>
             <nav class="global-nav">
-                <div class="home-nav">
-    
-                </div>
-                <div class="jobs-nav">
-    
-                </div>
-                <div class="me-nav">
-
+                <button class="global-nav-item home-nav" data-href="/home">
+                    <i class="global-nav-icon fa-solid fa-house"></i>
+                    <span>Home</span>
+                </button>
+                <button class="global-nav-item global-nav-item-active jobs-nav" data-href="/jobs">
+                    <i class="global-nav-icon fa-solid fa-briefcase"></i>
+                    <span>My Jobs</span>
+                </button>
+                <button class="global-nav-item people-nav" data-href="/people">
+                    <i class="global-nav-icon fa-solid fa-user-group"></i>
+                    <span>My People</span>
+                </button>
+                <button class="global-nav-item task-nav" data-href="/tasks">
+                    <i class="global-nav-icon fa-solid fa-list-check"></i>
+                    <span>My To-do</span>
+                </button>
+                <button class="global-nav-item me-nav">
+                    <img class="global-nav-icon" src="./assets/gin-logo.png"/>
+                    <span>Me <i class="fa-solid fa-caret-down"></i></span>
+                </button>
+                <div id="quote-me-nav">
+                    <a href="/signout">Sign Out</a>
                 </div>
             </nav>
         </div>

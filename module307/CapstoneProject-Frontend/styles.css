@@ -23,48 +23,50 @@ body {
 
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .header-nav {
     display: flex;
-    justify-content: flex-start;
+    flex-direction: row;
     align-items: center;
-    padding-left: 20%;
-    height: 70%;
     gap: 10px;
+    height: 100%;
+    width: 60%;
 }
 
 .logo-nav {
-    display: block;
+    display: flex;
+    align-items: center;
     position: relative;
     height: 100%;
+    width: 45px;
 }
 
 .img-fit-container {
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
+    height: 38px;
+    width: 38px;
     border-radius: 3px;
+    overflow: hidden;
 }
 
 .search-nav {
     display: block;
     position: relative;
-    height: 100%;
+    font-size: 12px;
     margin: 0;
 }
 
 .search-nav input {
     padding-left: 50px;
+    border-radius: 3px;
     border: none;
-    border-radius: 5px;
-    font-size: 14px;
-    height: 100%;
+    height: 38px;
     background-color: #edf3f8;
 }
 
 .search-nav input:focus {
-    font-size: 16px;
+    font-size: 14px;
     border: none;
 }
 
@@ -72,13 +74,82 @@ body {
     position: absolute;
     z-index: 1;
     top: 0;
-    left: 15px;
-    font-size: 14px;
+    left: 20px;
     height: 100%;
     display: flex;
     align-items: center;
 }
 
 .global-nav {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-left: auto;
+    height: 100%;
+}
 
+.global-nav-item {
+    background-color: transparent;
+    border: none;
+
+    height: 100%;
+    width: 80px;
+    display: flex;
+    color: rgb(0 0 0 / .6);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+}
+
+.global-nav-item:hover {
+    color: rgb(0 0 0 / .9);
+    cursor: pointer;
+}
+
+.global-nav-item-active {
+    border-bottom: 2px black solid;
+    color: rgb(0 0 0 / .9);
+}
+
+.global-nav-item .global-nav-icon  {
+    width: 28px;
+    border-radius: 50%;
+    font-size: 25px;
+}
+
+.global-nav-item span {
+    font-size: 12px;
+}
+
+#quote-me-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    margin-top: 5px;
+    right: 20%;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 6px rgb(0 0 0 / .3);
+    z-index: 1000;
+    border-radius: 5px;
+    min-width: 150px;
+    overflow: hidden;
+}
+
+/* Dropdown menu items */
+#quote-me-nav a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+.quote-section {
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    color: #555;
+    font-size: 14px;
+    font-style: italic;
 }
