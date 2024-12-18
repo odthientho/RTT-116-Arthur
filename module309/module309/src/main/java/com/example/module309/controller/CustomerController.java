@@ -1,7 +1,9 @@
 package com.example.module309.controller;
 
 import com.example.module309.database.dao.CustomerDAO;
+import com.example.module309.database.dao.EmployeeDAO;
 import com.example.module309.database.entity.Customer;
+import com.example.module309.database.entity.Employee;
 import com.example.module309.form.CreateCustomerFormBean;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
@@ -22,6 +24,8 @@ public class CustomerController {
 
     @Autowired
     private CustomerDAO customerDAO;
+    @Autowired
+    private EmployeeDAO employeeDAO;
 
     @GetMapping("/search")
     public ModelAndView search(@RequestParam(required = false) String firstName) {
@@ -54,7 +58,11 @@ public class CustomerController {
         form.setPostalCode(customer.getPostalCode());
         form.setCountry(customer.getCountry());
         form.setCreditLimit(customer.getCreditLimit());
+        form.setSalesRepEmployeeId(customer.getSalesRepEmployeeId());
         response.addObject("form", form);
+
+        List<Employee> employees = employeeDAO.findAllEmployees();
+        response.addObject("employeeKey", employees);
 
         return response;
     }
@@ -62,6 +70,8 @@ public class CustomerController {
     @GetMapping("/create")
     public ModelAndView create() {
         ModelAndView response = new ModelAndView();
+        List<Employee> employees = employeeDAO.findAllEmployees();
+        response.addObject("employeeKey", employees);
         response.setViewName("customer/create");
         return response;
     }
@@ -75,6 +85,8 @@ public class CustomerController {
             }
             response.setViewName("customer/create");
             response.addObject("form", form);
+            List<Employee> employees = employeeDAO.findAllEmployees();
+            response.addObject("employeeKey", employees);
             response.addObject("errors", bindingResult);
         } else {
             Customer customer = new Customer();
@@ -89,7 +101,10 @@ public class CustomerController {
             customer.setState(form.getState());
             customer.setPostalCode(form.getPostalCode());
             customer.setCountry(form.getCountry());
-            customer.setCreditLimit(customer.getCreditLimit());
+            customer.setCreditLimit(form.getCreditLimit());
+            Employee employee = employeeDAO.findById(form.getSalesRepEmployeeId());
+            customer.setRepEmployee(employee);
+
             customerDAO.save(customer);
             response.setViewName("customer/search");
         }

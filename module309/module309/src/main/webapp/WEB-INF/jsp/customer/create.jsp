@@ -125,6 +125,16 @@
             <label for="creditLimit" class="form-label">Credit Limit</label>
             <input type="text" class="form-control" id="creditLimit" name="creditLimit"  value="${form.creditLimit}">
           </div>
+          <div class="mb-3">
+            <label for="salesRepEmployeeId" class="form-label">Employee</label>
+            <select name="salesRepEmployeeId" id="salesRepEmployeeId" class="form-control">
+              <c:forEach var="employee" items="${employeeKey}">
+              <option value="${employee.id}" <c:if test="${form.salesRepEmployeeId eq employee.id}">selected</c:if>>
+                  ${employee.firstName} ${employee.lastName}
+              </option>
+              </c:forEach>
+            </select>
+          </div>
         </div>
       </div>
       <div class="row justify-content-center">
