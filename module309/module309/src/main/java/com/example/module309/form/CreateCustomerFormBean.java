@@ -1,6 +1,5 @@
 package com.example.module309.form;
 
-import com.example.module309.database.entity.Employee;
 import jakarta.validation.constraints.Size;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
