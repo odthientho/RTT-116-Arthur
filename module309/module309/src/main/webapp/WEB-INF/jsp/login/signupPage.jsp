@@ -15,25 +15,35 @@
     <!-- and it must be a method=post -->
     <!-- name of the input field MUST BE username -->
     <!-- name of the password fields MUST BE password -->
+
+    <div class="mt-3 row justify-content-center">
+      <div class="col-sm-10 col-lg-6">
+        <c:if test="${not empty errors}">
+          <div style="color: red;">
+             ${errors}
+          </div>
+        </c:if>
+      </div>
+    </div>
     <form action="/login/signup" method="post">
       <div class="mt-3 row justify-content-center">
         <label for="email" class="col-sm-2 col-form-label">Email</label>
         <div class="col-sm-10 col-lg-6">
-          <input type="text" class="form-control" id="email" name="email" value="">
+          <input type="text" class="form-control" id="email" name="email" value="${user.email}"">
         </div>
       </div>
 
       <div class="mt-3 row justify-content-center">
         <label for="password" class="col-sm-2 col-form-label">Password</label>
         <div class="col-sm-10 col-lg-6">
-          <input type="password" class="form-control" id="password" name="password" value="">
+          <input type="password" class="form-control" id="password" name="password" value="${user.password}">
         </div>
       </div>
 
       <div class="mt-3 row justify-content-center">
         <label for="fullName" class="col-sm-2 col-form-label">Full Name</label>
         <div class="col-sm-10 col-lg-6">
-          <input type="text" class="form-control" id="fullName" name="fullName" value="">
+          <input type="text" class="form-control" id="fullName" name="fullName" value="${user.fullName}">
         </div>
       </div>
 

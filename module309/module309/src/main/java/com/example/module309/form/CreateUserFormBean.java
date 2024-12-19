@@ -11,15 +11,15 @@ import lombok.ToString;
 @Setter
 @ToString
 public class CreateUserFormBean {
-        private Integer id;
+    private Integer id;
 
-        @Pattern(regexp = "^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$", message = "Email does not match its format.")
-        @NotEmpty(message = "Email is required.")
-        private String email;
+    @NotEmpty(message = "Email is required.")
+    @Pattern(regexp = "^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$", message = "Email does not match its format.")
+    private String email;
 
-        @Pattern(regexp = "[A-Za-z0-9]+", message = "Customer name must contain only letters, numbers.")
-        @NotEmpty(message = "Password is required.")
-        private String password;
+    @Pattern(regexp = "[A-Za-z0-9]+", message = "Password must contain only letters, numbers.")
+    @NotEmpty(message = "Password is required.")
+    private String password;
 
-        private String fullName;
+    private String fullName;
 }

@@ -1,7 +1,6 @@
 package com.example.module309.controller;
 
 import com.example.module309.database.dao.UserDAO;
-import com.example.module309.database.entity.Employee;
 import com.example.module309.database.entity.User;
 import com.example.module309.form.CreateUserFormBean;
 import jakarta.validation.Valid;
@@ -14,6 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.ArrayList;
 
 @Slf4j
 @Controller
@@ -41,22 +42,23 @@ public class LoginController {
     }
 
     @PostMapping("signup")
-    public ModelAndView signup(@Valid CreateUserFormBean user, BindingResult bindingResult) {
+    public ModelAndView signup(@Valid CreateUserFormBean formUser, BindingResult bindingResult) {
         ModelAndView response = new ModelAndView();
         if (bindingResult.hasErrors()) {
-            response.addObject("errors", bindingResult);
+            response.addObject("user", formUser);
+            response.addObject("errors", bindingResult.getAllErrors().get(0).getDefaultMessage());
             response.setViewName("login/signupPage");
         } else {
-            User checkingUser = userDAO.findByEmailIgnoreCase(user.getEmail());
-            if (checkingUser == null) {
+            if (userDAO.findByEmailIgnoreCase(formUser.getEmail()) == null) {
                 response.setViewName("redirect:/login/login");
-                User newUser = new User();
-                newUser.setEmail(user.getEmail());
-                newUser.setPassword(passwordEncoder.encode(user.getPassword()));
-                newUser.setFullName(user.getFullName());
-                userDAO.save(newUser);
+                User user = new User();
+                user.setEmail(formUser.getEmail());
+                user.setPassword(passwordEncoder.encode(formUser.getPassword()));
+                user.setFullName(formUser.getFullName());
+                userDAO.save(user);
             } else {
-                response.addObject("errors", "Already having this email");
+                response.addObject("errors", "This email is taken.");
+                response.addObject("user", formUser);
                 response.setViewName("login/signupPage");
             }
         }

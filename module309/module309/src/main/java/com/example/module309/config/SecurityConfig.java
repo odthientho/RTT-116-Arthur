@@ -16,8 +16,7 @@ public class SecurityConfig {
 
         // this is list of URLs that require authentication to the website before user can view URL
         // all URLs are acceptable to everyone except for the one listed here.
-        http
-                .authorizeHttpRequests((authorize) -> authorize
+        http.authorizeHttpRequests((authorize) -> authorize
                         // Require authentication for /customer/** endpoints
                         .requestMatchers("/customer/**").authenticated()
                         // Allow all other requests without authentication
@@ -39,7 +38,6 @@ public class SecurityConfig {
                 // where does it go when logged out
                 .logoutSuccessUrl("/")
                 .deleteCookies("username", "JSESSIONID"));
-
         return http.build();
     }
 
