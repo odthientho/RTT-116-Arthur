@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -32,6 +33,24 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/customer/create">New</a>
                     </li>
+                    <sec:authorize access="!isAuthenticated()">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login/login">Login</a>
+                        </li>
+                    </sec:authorize>
+                    <sec:authorize access="isAuthenticated()">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login/logout">Logout</a>
+                        </li>
+                    </sec:authorize>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login/signup">Sign Up</a>
+                    </li>
+                    <sec:authorize access="hasAuthority('ADMIN')">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Admin</a>
+                        </li>
+                    </sec:authorize>
                 </ul>
             </div>
         </nav>

@@ -25,10 +25,6 @@ public class IndexController {
         response.setViewName("index");
 
         List<Customer> firstNames = customerDAO.findByFirstName("Alexander");
-        for (Customer customer : firstNames) {
-            System.out.println(customer.toString());
-        }
-
         response.addObject("names", firstNames);
 
         return response;
