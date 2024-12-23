@@ -11,20 +11,15 @@
 
 <section class="bg-light2 pt-5 pb-5">
   <div class="container">
-    <!-- this form has to submit to the .loginProcessingUrl we configured in the spring security config -->
-    <!-- and it must be a method=post -->
-    <!-- name of the input field MUST BE username -->
-    <!-- name of the password fields MUST BE password -->
-
+    <c:if test="${not empty errors}">
     <div class="mt-3 row justify-content-center">
-      <div class="col-sm-10 col-lg-6">
-        <c:if test="${not empty errors}">
+      <div class="col-6 alert alert-danger" role="alert">
           <div style="color: red;">
              ${errors}
           </div>
-        </c:if>
       </div>
     </div>
+    </c:if>
     <form action="/login/signup" method="post">
       <div class="mt-3 row justify-content-center">
         <label for="email" class="col-sm-2 col-form-label">Email</label>

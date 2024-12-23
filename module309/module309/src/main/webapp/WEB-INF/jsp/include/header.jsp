@@ -37,15 +37,15 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/login/login">Login</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login/signup">Sign Up</a>
+                        </li>
                     </sec:authorize>
                     <sec:authorize access="isAuthenticated()">
                         <li class="nav-item">
                             <a class="nav-link" href="/login/logout">Logout</a>
                         </li>
                     </sec:authorize>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login/signup">Sign Up</a>
-                    </li>
                     <sec:authorize access="hasAuthority('ADMIN')">
                         <li class="nav-item">
                             <a class="nav-link" href="/">Admin</a>
