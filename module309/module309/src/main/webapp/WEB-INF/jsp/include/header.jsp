@@ -27,12 +27,14 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="/index">Home</a>
                     </li>
+                    <sec:authorize access="hasAuthority('USER')">
                     <li class="nav-item">
                         <a class="nav-link" href="/customer/search">Search</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/customer/create">New</a>
                     </li>
+                    </sec:authorize>
                     <sec:authorize access="!isAuthenticated()">
                         <li class="nav-item">
                             <a class="nav-link" href="/login/login">Login</a>

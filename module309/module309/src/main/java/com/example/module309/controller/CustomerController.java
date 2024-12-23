@@ -4,10 +4,13 @@ import com.example.module309.database.dao.CustomerDAO;
 import com.example.module309.database.dao.EmployeeDAO;
 import com.example.module309.database.entity.Customer;
 import com.example.module309.database.entity.Employee;
+import com.example.module309.database.entity.User;
 import com.example.module309.form.CreateCustomerFormBean;
+import com.example.module309.security.AuthenticatedUserService;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -19,13 +22,18 @@ import java.util.List;
 
 @Slf4j
 @Controller
+@PreAuthorize("hasAuthority('USER')")
 @RequestMapping("/customer")
 public class CustomerController {
 
     @Autowired
     private CustomerDAO customerDAO;
+
     @Autowired
     private EmployeeDAO employeeDAO;
+
+    @Autowired
+    private AuthenticatedUserService authenticatedUserService;
 
     @GetMapping("/search")
     public ModelAndView search(@RequestParam(required = false) String firstName) {
@@ -73,6 +81,8 @@ public class CustomerController {
         List<Employee> employees = employeeDAO.findAllEmployees();
         response.addObject("employeeKey", employees);
         response.setViewName("customer/create");
+        User loggedInUser = authenticatedUserService.loadCurrentUser();
+        log.debug("loggedInUser: " + loggedInUser.toString());
         return response;
     }
 
