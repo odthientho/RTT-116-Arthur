@@ -22,7 +22,7 @@ import java.util.List;
 
 @Slf4j
 @Controller
-@PreAuthorize("hasAuthority('USER')")
+@PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
 @RequestMapping("/customer")
 public class CustomerController {
 

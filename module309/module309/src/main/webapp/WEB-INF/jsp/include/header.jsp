@@ -27,7 +27,7 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="/index">Home</a>
                     </li>
-                    <sec:authorize access="hasAuthority('USER')">
+                    <sec:authorize access="hasAnyAuthority('ADMIN', 'USER')">
                     <li class="nav-item">
                         <a class="nav-link" href="/customer/search">Search</a>
                     </li>
