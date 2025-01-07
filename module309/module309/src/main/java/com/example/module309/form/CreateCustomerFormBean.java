@@ -6,6 +6,7 @@ import jakarta.validation.constraints.Pattern;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.web.multipart.MultipartFile;
 
 @Getter
 @Setter
@@ -46,5 +47,7 @@ public class CreateCustomerFormBean {
     private Double creditLimit;
 
     private Integer salesRepEmployeeId;
+
+    private MultipartFile upload;
 
 }

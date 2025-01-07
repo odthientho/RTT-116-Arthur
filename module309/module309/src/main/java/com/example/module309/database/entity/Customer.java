@@ -63,4 +63,7 @@ public class Customer {
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @ToString.Exclude
     private List<Order> orders;
+
+    @Column(name = "image_url", length = 500)
+    private String imageUrl;
 }

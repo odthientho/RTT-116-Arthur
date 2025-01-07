@@ -18,6 +18,9 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 
 @Slf4j
@@ -87,7 +90,7 @@ public class CustomerController {
     }
 
     @PostMapping("/createOrUpdate")
-    public ModelAndView createOrUpdate(@Valid CreateCustomerFormBean form, BindingResult bindingResult) {
+    public ModelAndView createOrUpdate(@Valid CreateCustomerFormBean form, BindingResult bindingResult) throws Exception {
         ModelAndView response = new ModelAndView();
         if (bindingResult.hasErrors()) {
             for (ObjectError error : bindingResult.getAllErrors()) {
@@ -114,6 +117,12 @@ public class CustomerController {
             customer.setCreditLimit(form.getCreditLimit());
             Employee employee = employeeDAO.findById(form.getSalesRepEmployeeId());
             customer.setRepEmployee(employee);
+
+            log.debug("Uploaded filename:" + form.getUpload().getOriginalFilename());
+            String pathToSave = "./src/main/webapp/pub/images/" + form.getUpload().getOriginalFilename();
+            Files.copy(form.getUpload().getInputStream(), Paths.get(pathToSave), StandardCopyOption.REPLACE_EXISTING);
+            String url = "/pub/images/" + form.getUpload().getOriginalFilename();
+            customer.setImageUrl(url);
 
             customerDAO.save(customer);
             response.setViewName("customer/search");

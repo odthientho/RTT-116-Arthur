@@ -5,7 +5,7 @@
 
   <div class="container">
     <!-- Display validation errors -->
-    <form action="/customer/createOrUpdate" method="post">
+    <form action="/customer/createOrUpdate" method="post" enctype="multipart/form-data">
       <input type="hidden" name="id" value="${form.id}"/>
       <div class="row pt-3 justify-content-center">
         <div class="col-6">
@@ -135,8 +135,13 @@
               </c:forEach>
             </select>
           </div>
+          <div class="mb-3">
+            <label for="upload" class="form-label">Upload Image</label>
+            <input type="file" class="form-control" id="upload" name="upload">
+          </div>
         </div>
       </div>
+
       <div class="row justify-content-center">
         <div class="col-6">
           <button type="submit" class="btn btn-primary"> Submit </button>
