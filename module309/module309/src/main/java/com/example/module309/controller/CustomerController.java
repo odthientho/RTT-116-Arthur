@@ -25,7 +25,7 @@ import java.util.List;
 
 @Slf4j
 @Controller
-@PreAuthorize("hasAnyAuthority('ADMIN', 'USER')")
+@PreAuthorize("hasAnyAuthority('ADMIN', 'CUSTOMER')")
 @RequestMapping("/customer")
 public class CustomerController {
 
