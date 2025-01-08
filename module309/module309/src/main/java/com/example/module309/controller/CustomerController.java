@@ -38,6 +38,13 @@ public class CustomerController {
     @Autowired
     private AuthenticatedUserService authenticatedUserService;
 
+    @GetMapping("/ajaxExample")
+    public ModelAndView ajaxExample() {
+        ModelAndView response = new ModelAndView();
+        response.setViewName("customer/ajaxExample");
+        return response;
+    }
+
     @GetMapping("/search")
     public ModelAndView search(@RequestParam(required = false) String firstName) {
         ModelAndView response = new ModelAndView();
