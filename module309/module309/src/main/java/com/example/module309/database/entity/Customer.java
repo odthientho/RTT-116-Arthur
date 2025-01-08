@@ -1,5 +1,7 @@
 package com.example.module309.database.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.google.gson.annotations.Expose;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -52,6 +54,7 @@ public class Customer {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "sales_rep_employee_id")
     @ToString.Exclude
+    @JsonIgnore
     private Employee repEmployee;
 
     @Column(name = "sales_rep_employee_id", insertable = false, updatable = false)
@@ -62,6 +65,7 @@ public class Customer {
 
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @ToString.Exclude
+    @JsonIgnore
     private List<Order> orders;
 
     @Column(name = "image_url", length = 500)

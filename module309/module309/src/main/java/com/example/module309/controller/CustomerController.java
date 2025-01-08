@@ -7,12 +7,12 @@ import com.example.module309.database.entity.Employee;
 import com.example.module309.database.entity.User;
 import com.example.module309.form.CreateCustomerFormBean;
 import com.example.module309.security.AuthenticatedUserService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
@@ -43,6 +43,13 @@ public class CustomerController {
         ModelAndView response = new ModelAndView();
         response.setViewName("customer/ajaxExample");
         return response;
+    }
+
+    @ResponseBody
+    @GetMapping("/ajaxCall")
+    public String ajaxCall(@RequestParam Integer customerId) throws Exception {
+        Customer customer = customerDAO.findById(customerId);
+        return new ObjectMapper().writeValueAsString(customer);
     }
 
     @GetMapping("/search")
